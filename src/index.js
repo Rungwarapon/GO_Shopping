@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import Home from './containers/Home';
+import Pro from './containers/profile'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Pro/>
   </React.StrictMode>,
   document.getElementById('root')
 );
