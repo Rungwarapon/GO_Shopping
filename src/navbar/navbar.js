@@ -8,7 +8,7 @@ function App() {
     <div>
       <Navbar bg="light" expand="lg">
         <div className="container">
-            <Navbar.Brand href="#home">Shop</Navbar.Brand>
+            <Navbar.Brand href="#home">Go Shopping</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
             {/* <Nav className="mr-auto">
