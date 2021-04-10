@@ -29,6 +29,9 @@ function Login() {
             <Button variant="primary" href="/register">
                    register
             </Button>
+            <Button variant="primary" href="/registercompany">
+                   register company
+            </Button>
         </div>
       </div>
     );

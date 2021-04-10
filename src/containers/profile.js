@@ -33,6 +33,7 @@ function profile() {
                           <th scope="col">Company</th>
                           <th scope="col">Number</th>
                           <th scope="col">Total price</th>
+                          <th scope="col">State</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -42,6 +43,7 @@ function profile() {
                           <td>บริษัท123456 จำกัด</td>
                           <td>5000 ชิ้น</td>
                           <td>60000000 บาท</td>
+                          <td>success</td>
                         </tr>
                         <tr>
                           <th scope="row">2</th>
@@ -49,6 +51,7 @@ function profile() {
                           <td>บริษัท123456 จำกัด</td>
                           <td>5000 ชิ้น</td>
                           <td>60000000 บาท</td>
+                          <td>waiting</td>
                         </tr>
                         <tr>
                           <th scope="row">3</th>
@@ -56,6 +59,7 @@ function profile() {
                           <td>บริษัท123456 จำกัด</td>
                           <td>5000 ชิ้น</td>
                           <td>60000000 บาท</td>
+                          <td>cancel</td>
                         </tr>
                       </tbody>
                     </table>

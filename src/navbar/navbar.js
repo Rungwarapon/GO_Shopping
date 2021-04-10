@@ -22,11 +22,12 @@ function App() {
                 <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                 </NavDropdown>
             </Nav> */}
-            <Form inline>
+            <Form inline >
                 <FormControl type="text" placeholder="Search" className="mr-sm-2" />
                 <Button variant="outline-success">Search</Button>
             </Form>
             </Navbar.Collapse>
+            <Nav.Link href="/companymanage">company manage page test and build</Nav.Link>
             <NavDropdown title="Menu" id="basic-nav-dropdown">
                 <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
