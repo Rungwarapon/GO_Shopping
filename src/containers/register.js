@@ -5,7 +5,7 @@ function Login() {
       <div className="App">
         <Nav/>
         <div className="container">
-          <p className="text-center font-italic ">Register</p>
+          <h1 className="text-center font-italic ">Register</h1>
             <Form>
                 <Row>
                     <Col>

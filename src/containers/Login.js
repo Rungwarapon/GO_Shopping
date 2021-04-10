@@ -5,7 +5,7 @@ function Login() {
       <div className="App">
         <Nav/>
         <div className="container">
-          <p className="text-center font-italic">Login</p>
+          <h1 className="text-center font-italic">Login</h1>
             <Form>
                 <Form.Group controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
