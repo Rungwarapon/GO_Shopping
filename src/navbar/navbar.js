@@ -8,7 +8,7 @@ function App() {
     <div>
       <Navbar bg="light" expand="lg">
         <div className="container">
-            <Navbar.Brand href="#home">Go Shopping</Navbar.Brand>
+            <Navbar.Brand href="/">Go Shopping</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
             {/* <Nav className="mr-auto">
@@ -27,6 +27,13 @@ function App() {
                 <Button variant="outline-success">Search</Button>
             </Form>
             </Navbar.Collapse>
+            <NavDropdown title="name profile" id="basic-nav-dropdown">
+                <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="/Login">Logout</NavDropdown.Item>
+        </NavDropdown>
         </div>
       </Navbar>
     </div>

@@ -5,7 +5,7 @@ function Login() {
       <div className="App">
         <Nav/>
         <div className="container">
-          <p className="text-center font-italic">Home page wait database  show product</p>
+          <p className="text-center font-italic">Login</p>
             <Form>
                 <Form.Group controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
@@ -26,6 +26,9 @@ function Login() {
                     Submit
                 </Button>
             </Form>
+            <Button variant="primary" href="/register">
+                   register
+            </Button>
         </div>
       </div>
     );
