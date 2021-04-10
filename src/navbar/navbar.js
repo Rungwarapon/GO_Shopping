@@ -27,7 +27,7 @@ function App() {
                 <Button variant="outline-success">Search</Button>
             </Form>
             </Navbar.Collapse>
-            <NavDropdown title="name profile" id="basic-nav-dropdown">
+            <NavDropdown title="Menu" id="basic-nav-dropdown">
                 <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>

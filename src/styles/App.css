@@ -13,3 +13,14 @@
 .itemProfile2{
     width: 70%;
 }
+.contactdetail{
+    background-color: rgb(231, 229, 229);
+}
+.right{
+    display: flex;
+    flex-direction: column;
+    padding: 5%;
+}
+/* .incontactdetail{
+    padding: 10%;
+} */
