@@ -1,17 +1,14 @@
 import { Navbar, Nav, NavDropdown, Form, FormControl, Button} from 'react-bootstrap';
-// import React, { useEffect, useState } from 'react'
+
 
 
 function App() {
-  // const [setIsLogin, isLogin] = useState(false)
 
   return (
-    
     <div>
-      {/* {checkLogin} */}
       <Navbar bg="light" expand="lg">
         <div className="container">
-            <Navbar.Brand href="/">Home</Navbar.Brand>
+            <Navbar.Brand href="#home">Go Shopping</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
             {/* <Nav className="mr-auto">
@@ -29,14 +26,7 @@ function App() {
                 <FormControl type="text" placeholder="Search" className="mr-sm-2" />
                 <Button variant="outline-success">Search</Button>
             </Form>
-              <NavDropdown title='name profile' id="basic-nav-dropdown">
-                  <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
-                  <NavDropdown.Item>Another action</NavDropdown.Item>
-                  <NavDropdown.Item>Something</NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item href="/login" >Logout</NavDropdown.Item>
-              </NavDropdown>
-              </Navbar.Collapse>
+            </Navbar.Collapse>
         </div>
       </Navbar>
     </div>
