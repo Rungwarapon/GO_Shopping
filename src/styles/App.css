@@ -25,3 +25,27 @@
     display: flex;
     flex-direction: column;
 } */
+.companyname{
+    padding: 7px;
+    width: 100%;
+}
+.namecom{
+    font-size: 1.8vw;
+    /* width: 100%; */
+}
+.nameproductinhome {
+    font-size:1.3vw;
+    height: 10vh;
+}
+
+.pdetailaddress{
+    font-size: 1.2vw;
+}
+
+.pricebutton{
+    display: flex;
+    flex-direction: row;
+}
+.spaceprice{
+    padding-left: 9em;
+}

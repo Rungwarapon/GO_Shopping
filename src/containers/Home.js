@@ -23,17 +23,19 @@ function Home() {
       <div className="App">
         <Nav/>
         <div className="container">
-            <h1 className="text-center font-italic">Product</h1>
+            <br/><h1 className="text-center font-italic">Product</h1><br/>
             <div class="card-columns">
             { Product.map(item =>
                   <div class="card">
-                    <img class="card-img-top" src="/images/test.jpeg" alt="Card image cap" style={{ width: '100%', height: 'Auto'}}/>
+                    <img class="card-img-top" src={item.picture} alt="Card image cap" style={{ width: '100%', height: 'Auto'}}/>
                     <div class="card-body">
-                      <h5 class="card-title">{item.productName}</h5>
-                      {/* <p class="card-text">{item.detail}</p> */}
+                      <h5 class="nameproductinhome">{item.productName}</h5>
                     </div>
-                    <div class="card-footer">
-                      <Button variant="primary" href={'/detailProduct/'+ item._id}>Detail</Button>
+                    <div class="card-footer col">
+                      <div className='pricebutton'>
+                        <Button variant="primary" href={'/detailProduct/'+ item._id}>Detail</Button>
+                        <p className='spaceprice'>price {item.priceUnit}.-</p>
+                      </div>
                     </div>
                   </div>
             )}

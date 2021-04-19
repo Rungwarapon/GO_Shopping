@@ -36,7 +36,7 @@ const Profile =()=> {
       <div className="App">
         <Nav/>
         <div className="container">
-            <h1 className="text-center font-italic">Profile page</h1>
+            <br/><h1 className="text-center font-italic">Profile page</h1><br/>
             <div className="containerProfile">
               <div className="itemProfile1">
                 <img src="/images/test.jpeg"></img>
@@ -47,11 +47,11 @@ const Profile =()=> {
                 <div className="right">
                   <div style={{ height:"10em" }}>
                     <Row>
-                        <Col><p> firstname : {Firstname} </p></Col> 
-                        <Col><p> lastname : {Lastname}</p></Col>
+                        <Col><p><b>Firstname :</b> {Firstname} </p></Col> 
+                        <Col><p><b>Lastname :</b> {Lastname}</p></Col>
                     </Row>
-                    <p>mail : {Email}</p>
-                    <p>Phone number : 0860606060</p>
+                    <p><b>Email :</b> {Email}</p>
+                    <p><b>Phone number :</b> 0860606060</p>
                   </div>
                   <div>
                     <h3>Order history</h3>
