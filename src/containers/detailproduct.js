@@ -1,15 +1,34 @@
 import Nav from "../navbar/navbar"
 import {Button} from 'react-bootstrap';
 import '../styles/App.css';
-function detailproduct() {
+import Axios from 'axios';
+import React, { useState, useEffect } from "react";
+
+function Detailproduct(prop) {
+    const [Idd, SetIdd] = useState(prop.match.params.id)
+    const [ProductDe, SetProductDe] = useState([])
+
+    const fetchData =()=> {
+      Axios.get("http://localhost:3001/api/products/" + Idd).then(
+          res => { 
+            SetProductDe(res.data)
+
+          })
+    }
+
+    useEffect(() => {
+      fetchData();
+    }, []);
+
+
     return (
       <div className="App">
         <Nav/>
         <div className="container">
-            <h1 className="text-center font-italic">CPU CORE I7-9700F (Original)</h1>
+            <h1 className="text-center font-italic">{ProductDe.productName}</h1>
             <div className="containerProfile">
               <div className="itemProfile1">
-                <img style={{ width:'300px' }} src="/images/test.jpeg"></img>
+                <img style={{ width:'100%' }} src="/images/test.jpeg"></img>
                 <div>
                   <h2>บริษัท123456 จำกัด</h2>
                 </div>
@@ -25,11 +44,11 @@ function detailproduct() {
               <div className="itemProfile2">
                   <div className="right">
                     <div style={{ height:"20em" }}>
-                      <p>Intel Core i7-9700F 3.00 GHz 8C/8T CPU LGA 1151 ซีพียูรุ่นที่ 9 จาก Intel มี 8 คอร์ 8 เทรด ความเร็วพื้นฐาน 3.0 GHz สูงสุด 4.70 GHz เล่นเกม และทำงานต่างๆ ได้อย่างดี ทั้งงานทั่วไป งานกราฟิก งาน 3D ได้อย่างไหลลื่น CPU Intel Core i7-9700F มีเทคโนโลยี Intel Turbo Boost Technology 2.0 ช่วยเพิ่มความเร็วในช่วงระยะหนึ่งขณะทำงาน ไม่มี GPU ในตัว ต้องติดตั้งการ์ดจอแยก</p>
+                      <p>{ProductDe.detail}</p>
                     </div>
                     <div>
                       <p>จำนวน : 10000 ชิ้น</p>
-                      <p>ราคา : 12000 บาท</p>
+                      <p>ราคา : {ProductDe.priceUnit} บาท</p>
                     </div>
                     <Button variant="primary">
                       preorder
@@ -44,5 +63,5 @@ function detailproduct() {
     );
   }
   
-  export default detailproduct;
+  export default Detailproduct;
   

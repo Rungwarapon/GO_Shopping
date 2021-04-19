@@ -1,7 +1,37 @@
 import Nav from "../navbar/navbar"
 import {Button, Col, Row} from 'react-bootstrap';
 import '../styles/App.css';
-function profile() {
+import Axios from 'axios';
+import React, { useState, useEffect } from "react";
+
+// const userssFetch = () => {
+//   return dispatch => {
+//       Axios.get("http://localhost:3001/api/users").then(
+//           res => { 
+//             SetUser(res.data)
+//           })
+//   }
+// } 
+const Profile =()=> {
+    const [User, SetUser] = useState()
+    const [Firstname, SetFirstname] = useState()
+    const [Lastname, SetLastname] = useState()
+    const [Email, SetEmail] = useState()
+    const fetchData =()=> {
+      Axios.get("http://localhost:3001/api/users").then(
+          res => { 
+            SetUser(res.data[0].User)
+            SetFirstname(res.data[0].firstName)
+            SetLastname(res.data[0].lastName)
+            SetEmail(res.data[0].email)
+          })
+    }
+
+    useEffect(() => {
+      fetchData();
+    }, []);
+    
+
     return (
       <div className="App">
         <Nav/>
@@ -17,10 +47,10 @@ function profile() {
                 <div className="right">
                   <div style={{ height:"10em" }}>
                     <Row>
-                        <Col><p> firstname : thitiwut</p></Col>
-                        <Col><p> lastname : phohpan</p></Col>
+                        <Col><p> firstname : {Firstname} </p></Col> 
+                        <Col><p> lastname : {Lastname}</p></Col>
                     </Row>
-                    <p>mail :123456@hotmail.com</p>
+                    <p>mail : {Email}</p>
                     <p>Phone number : 0860606060</p>
                   </div>
                   <div>
@@ -74,5 +104,5 @@ function profile() {
     );
   }
   
-  export default profile;
+  export default Profile;
   

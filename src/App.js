@@ -16,7 +16,7 @@ function App() {
                 <Route path="/register" component={Register} />
                 <Route path="/registercompany" component={Registercompany} />
                 <Route path="/profile" component={Profile} />
-                <Route path="/detailProduct" component={DetailProduct} />
+                <Route path="/detailProduct/:id" component={DetailProduct} />
                 <Route path="/companymanage" component={Companymanage} />
             </Switch>
         </Router>
