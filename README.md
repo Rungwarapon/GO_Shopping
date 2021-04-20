@@ -8,12 +8,8 @@
 
 # Work progress    [ ]ไม่รวมตกแต่ง
    - Authen
-      - [ ] register #หรือสมัครใช้ได้ 2 ฝั่ง ถ้าไม่ทัน
-        - [ ] ฝั่ง customer
-        - [ ] ฝั้ง company
+      - [ ] register 
       - [ ] login/logout 
-        - [ ] ฝั่ง customer #หรือรวม
-        - [ ] ฝั้ง company  #หรือรวม
       - [ ] forgot password
       - [ ] change password
 
@@ -23,7 +19,7 @@
         - [ ] filter #ถ้าทัน
       - [x] หน้าDetail Product
         - [x] แสดงข้อมูลProduct
-        - [ ] แสดงข้อมูลCompany #รอ S3
+        - [ ] แสดงข้อมูลCompany
       - [x] หน้า Profile
         - [ ] แสดงข้อมูล User ที่ Login #รอ Authenเสร็จ
         - [ ] Edit User
