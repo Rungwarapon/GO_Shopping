@@ -5,7 +5,7 @@ function Login() {
       <div className="App">
         <Nav/>
         <div className="container">
-          <h1 className="text-center font-italic ">Register Conpany</h1>
+          <h1 className="text-center font-italic ">Register</h1>
             <Form>
                 <Row>
                     <Col>
@@ -41,6 +41,10 @@ function Login() {
                     </Form.Text>
                 </Form.Group>
                 <Form.Group>
+                    <Form.Label>Phone number</Form.Label>
+                    <Form.Control type="text" placeholder="Phone number" />
+                </Form.Group>
+                <Form.Group>
                     <Form.Label>company</Form.Label>
                     <Form.Control type="text" placeholder="company name" />
                 </Form.Group>
@@ -53,7 +57,7 @@ function Login() {
                     <Form.Control type="file" class="custom-file-input" placeholder="company name" />
                 </Form.Group>
 
-                <Button variant="primary" type="submit" href="login">
+                <Button variant="primary" type="submit" href="/login">
                     Submit
                 </Button>
             </Form>

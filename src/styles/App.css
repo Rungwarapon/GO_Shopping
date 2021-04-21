@@ -1,18 +1,37 @@
+
+.App{
+    /* background-color: rgb(206, 244, 245); */
+}
+.textcolorNavbar{
+    color: white;
+}
 .layoutPage{
     padding-top: 4rem;
     padding-left: 12rem;
 }
+/* detailproduct start *//* detailproduct start *//* detailproduct start *//* detailproduct start *//* detailproduct start */
+.nameproduct{
+    font-family: italic;
+    text-align: center;
+    font-size: 2.5vw;
+}
+.sizedetail{
+    font-size: 1vw;
+}
+
 .containerProfile{
     display: flex;
 }
 .itemProfile1{
-    width: 30%;
+    width: 50%;
     display: flex;
     flex-direction: column;
 }
 .itemProfile2{
-    width: 70%;
+    width: 50%;
 }
+/* detailproduct end *//* detailproduct end *//* detailproduct end *//* detailproduct end *//* detailproduct end */
+
 .contactdetail{
     background-color: rgb(231, 229, 229);
 }
@@ -21,17 +40,12 @@
     flex-direction: column;
     padding: 5%;
 }
-/* .card{
-    display: flex;
-    flex-direction: column;
-} */
 .companyname{
     padding: 7px;
     width: 100%;
 }
 .namecom{
     font-size: 1.8vw;
-    /* width: 100%; */
 }
 .nameproductinhome {
     font-size:1.3vw;
@@ -42,10 +56,46 @@
     font-size: 1.2vw;
 }
 
+/* card start *//* card start *//* card start *//* card start *//* card start *//* card start */
+.sizecard{
+    width: 23em;
+    padding: 1em;
+}
+.order {
+    flex-flow: column wrap;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    /* order: 3; */
+  }
+
 .pricebutton{
     display: flex;
     flex-direction: row;
 }
 .spaceprice{
-    padding-left: 9em;
+    padding-left: 7em;
 }
+
+.hoverbutton{
+    width: 5em;
+    height: 2.5em;
+    padding: 15px 25px;
+    font-size: 1.4em;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #70EE9C;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+.hoverbutton:hover {background-color: #3e8e41}
+
+.hoverbutton:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+/* card end *//* card end *//* card end *//* card end *//* card end *//* card end *//* card end */

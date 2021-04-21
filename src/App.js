@@ -3,8 +3,7 @@ import Home from "./containers/Home";
 import Profile from "./containers/profile"
 import DetailProduct from "./containers/detailproduct"
 import Login from "./containers/Login"
-import Register from "./containers/registercustomer"
-import Registercompany from "./containers/registercompany"
+import Register from "./containers/registercompany"
 import Companymanage from "./containers/companymanage"
 
 function App() {
@@ -14,7 +13,7 @@ function App() {
                 <Route exact path="/" component={Home} />
                 <Route path="/login" component={Login} />
                 <Route path="/register" component={Register} />
-                <Route path="/registercompany" component={Registercompany} />
+                {/* <Route path="/registercompany" component={Registercompany} /> */}
                 <Route path="/profile" component={Profile} />
                 <Route path="/detailProduct/:id" component={DetailProduct} />
                 <Route path="/companymanage" component={Companymanage} />

@@ -22,15 +22,15 @@ function Login() {
                 <Form.Group controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Check me out" />
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button variant="primary" type="submit" href="/">
                     Submit
                 </Button>
             </Form>
-            <Button variant="primary" href="/register">
+            {/* <Button variant="primary" href="/register">
                    register
-            </Button>
-            <Button variant="primary" href="/registercompany">
-                   register company
+            </Button> */}
+            <Button variant="primary" href="/register">
+                   register 
             </Button>
         </div>
       </div>

@@ -6,9 +6,9 @@ function App() {
 
   return (
     <div>
-      <Navbar bg="light" expand="lg">
+      <Navbar bg="dark" expand="lg">
         <div className="container">
-            <Navbar.Brand href="/">Go Shopping</Navbar.Brand>
+            <Navbar.Brand class="text-light" href="/">Go Shopping</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
             {/* <Nav className="mr-auto">
