@@ -15,6 +15,7 @@ function Home() {
 
           })
     }
+    
 
     useEffect(() => {
       fetchData();
@@ -29,12 +30,12 @@ function Home() {
               
             { Product.map(item =>
                 <div className='sizecard'>
-                  <div class="card">
-                    <img class="card-img-top" src={item.photos} alt="Card image cap" style={{ width: '100%', height: 'Auto'}}/>
-                    <div class="card-body">
-                      <h5 class="nameproductinhome">{item.productName}</h5>
+                  <div className="card">
+                    <img className="card-img-top" src={item.photos} alt="Card image cap" style={{ width: '100%', height: 'Auto'}}/>
+                    <div className="card-body">
+                      <h5 className="nameproductinhome">{item.productName}</h5>
                     </div>
-                    <div class="card-footer col">
+                    <div className="card-footer col">
                       <div className='pricebutton'>
                         <Button className="hoverbutton" href={"/detailProduct/"+ item._id}>Detail</Button>
                         <p className='spaceprice'><b>price {item.priceUnit}.-</b></p>

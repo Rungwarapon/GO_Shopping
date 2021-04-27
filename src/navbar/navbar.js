@@ -8,6 +8,7 @@ function App() {
 
   const handleChange = (event) => {
     let fieldVal = event.target.value;
+    console.log(fieldVal);
     setSearchProduct(fieldVal)
   }
 
@@ -16,7 +17,7 @@ function App() {
     let body = {
       searchProduct: searchProduct
     }
-    Axios.post('localhost:3001/api/index/search', body).then((response) => {
+    Axios.post('http://localhost:3001/api/index/search', body).then((response) => {
       console.log(response.data)
     })
   }

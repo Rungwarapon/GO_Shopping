@@ -55,7 +55,7 @@ const Profile =()=> {
                   </div>
                   <div>
                     <h3>Order history</h3>
-                    <table class="table">
+                    <table className="table">
                       <thead>
                         <tr>
                           <th scope="col">Id</th>
