@@ -4,22 +4,22 @@ import { Navbar, Nav, NavDropdown, Form, Button, FormControl } from 'react-boots
 
 
 function App() {
-  const [searchProduct, setSearchProduct] = useState('');
+  // const [searchProduct, setSearchProduct] = useState('');
 
-  const handleChange = (event) => {
-    let fieldVal = event.target.value;
-    setSearchProduct(fieldVal)
-  }
+  // const handleChange = (event) => {
+  //   let fieldVal = event.target.value;
+  //   setSearchProduct(fieldVal)
+  // }
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    let body = {
-      searchProduct: searchProduct
-    }
-    Axios.post('localhost:3001/api/index/search', body).then((response) => {
-      console.log(response.data)
-    })
-  }
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   let body = {
+  //     searchProduct: searchProduct
+  //   }
+  //   Axios.get("http://localhost:3001/api/index/search", body).then((response) => {
+  //     console.log(response.data)
+  //   })
+  // }
 
   return (
     <div>
@@ -39,17 +39,21 @@ function App() {
                 <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                 </NavDropdown>
             </Nav> */}
-            <Form inline onSubmit={handleSubmit}>
-              <FormControl
+
+            {/* onSubmit={handleSubmit} */}
+            <Form inline>
+              <FormControl></FormControl>
+              {/* <FormControl
                 type="text"
                 name="searchProduct"
                 placeholder="Search"
                 className="mr-sm-2"
                 value={searchProduct}
                 onChange={handleChange}
-              />
+              /> */}
               <Button variant="outline-success" type="submit">Search</Button>
             </Form>
+            
           </Navbar.Collapse>
           <Nav.Link href="/companymanage">company manage page test and build</Nav.Link>
           <NavDropdown title="Menu" id="basic-nav-dropdown">
