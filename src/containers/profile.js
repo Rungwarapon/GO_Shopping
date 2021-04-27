@@ -40,8 +40,8 @@ const Profile =()=> {
             <div className="containerProfile">
               <div className="itemProfile1">
                 <img src="/images/test.jpeg"></img>
-                <Button variant="outline-success">Edit Profile</Button>
-                <Button variant="outline-success">Change Password</Button>
+                {/* <Button variant="outline-success">Edit Profile</Button>
+                <Button variant="outline-success">Change Password</Button> */}
               </div>
               <div className="itemProfile2">
                 <div className="right">
