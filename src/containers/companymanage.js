@@ -1,23 +1,69 @@
 // import { Card, Button } from "react-bootstrap";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Nav from "../navbar/navbar";
 import styles from "./CartItem.module.css";
 import "../styles/App.css";
-import {
-  Card,
-  Button,
-  ButtonToolbar,
-  Row,
-  Navbar,
-  Col,
-  Modal,
-  Container,
-} from "react-bootstrap";
+import {Card,Button,ButtonToolbar,Row,Navbar,Col,Modal,Container,} from "react-bootstrap";
+import Axios from 'axios';
+
 
 
 
 function MydModalWithGrid(props) {
-  // const [picture, setPicture] = ([]);
+  const [productName, setproductName] = useState();
+  const [priceUnit, setpriceUnit] = useState();
+  const [photos, setphotos] = useState();
+  const [detail, setdetail] = useState();
+  const [userId, setuserId] = useState();
+  
+
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    let body = {
+      productName: productName,
+      priceUnit: priceUnit,
+      photos:photos,
+      detail:detail,
+      userId:userId
+    }
+    Axios.post('http://localhost:3001/api/products/create', body).then((response) => {
+      // setSearchValue(response.data)
+      setproductName('')
+      setpriceUnit('')
+      setphotos('')
+      setdetail('')
+      window.location.reload(true);
+    })
+    
+    // props.onHide()
+    // setTimeout(3000)
+    // window.location.reload(true);
+    
+  }
+
+  const handleChangeproductName = (event) => {
+    let fieldVal = event.target.value;
+    console.log(fieldVal);
+    setproductName(fieldVal)
+  }
+  const handleChangepriceUnit = (event) => {
+    let fieldVal = event.target.value;
+    console.log(fieldVal);
+    setpriceUnit(fieldVal)
+  }
+  const handleChangedetail = (event) => {
+    let fieldVal = event.target.value;
+    console.log(fieldVal);
+    setdetail(fieldVal)
+  }
+  const handleChangephotos = (event) => {
+    let fieldVal = event.target.value;
+    console.log(fieldVal);
+    setphotos(fieldVal)
+  }
+
+
 
   return (
     <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
@@ -26,19 +72,19 @@ function MydModalWithGrid(props) {
           Add New Product
         </Modal.Title>
       </Modal.Header>
-      <Modal.Body className="show-grid">
-        <form>
+        <form onSubmit={handleSubmit}>
+        <Modal.Body className="show-grid">
           <Container>
             <Row>
               <Col xs={12} md={8}>
-                <label>
+                <label value={productName} onChange={handleChangeproductName}>
                   Product Name :<input type="text" name="Product Name"></input>
                 </label>
               </Col>
             </Row>
             <Row>
               <Col xs={12} md={7}>
-                <label>
+                <label value={priceUnit}onChange={handleChangepriceUnit}>
                   Price Unit : 
                   <input type="text" name="Product Unit"></input>
                 </label>
@@ -47,7 +93,7 @@ function MydModalWithGrid(props) {
 
             <Row>
               <Col xs={6} md={4}>
-                <label>
+                <label type="text" value={detail} onChange={handleChangedetail}>
                   Description : 
                 <textarea name='Description' />
                 </label>
@@ -55,34 +101,51 @@ function MydModalWithGrid(props) {
               </Row>
               <Row>
               <Col xs={6} md={4}>
-                <label>
+                <label value={photos} onChange={handleChangephotos}>
                   Choose Image : 
-                  {/* <input type="file" onClick={() => setPicture()}></input> */}
                   <input type="file"></input>
                 </label>
-                {/* .col-xs-6 .col-md-4 */}
               </Col>
               <Col xs={6} md={4}>
-                {/* .col-xs-6 .col-md-4 */}
               </Col>
             </Row>
           </Container>
+
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="outline-success" type="submit">Add</Button>
+          </Modal.Footer>
         </form>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={props.onHide}>Submit</Button>
-      </Modal.Footer>
     </Modal>
   );
 }
 
 function Companymanage() {
   const [modalShow, setModalShow] = useState(false);
+  const [Product, SetProduct] = useState([]);
+
+  const fetchData = () => {
+    Axios.get("http://localhost:3001/api/products").then((res) => {
+      SetProduct(res.data);
+    });
+  };
+
+    
+
+    useEffect(() => {
+      fetchData();
+      
+
+    }, []);
+
+  const handleDElete = (item) =>{
+    Axios.delete("http://localhost:3001/api/products/delete/" + item._id).then((res) => {});
+    window.location.reload(true);
+  }
 
   return (
-    <div className="Companymanage">
+    <div className="App">
       <Nav />
-      <Navbar bg="light" expand="lg">
         <div className="container">
           <Button variant="primary" onClick={() => setModalShow(true)}>
             Add Product
@@ -93,54 +156,32 @@ function Companymanage() {
             onHide={() => setModalShow(false)}
           />
         </div>
-      </Navbar>
-      <Row>
-        <div className="layoutPage">
-          <div>
-            <Card style={{ width: "18rem" }}>
+
+        <div className="order">
+          <div className='sizecard'>
+            {Product.map(item => <Card className='card'>
               <Card.Img
                 variant="top"
-                src="https://storage.googleapis.com/file-computeandmore/images/051e9571-9e1f-45db-87d0-014a6d966b7c.jpg?fbclid=IwAR2tEfzpYhxJsLC2TxiXomNEjLIPR7awUYr2FOGOpXfY7R_OiOrI9glqb4w"
+                src={item.photos}
               />
               <Card.Body>
-                <Card.Title>Card Title</Card.Title>
+                <Card.Title>{item.productName}</Card.Title>
                 <Card.Text>
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                {item.detail}
                 </Card.Text>
                 <div className={styles.cartItem__actions}>
                   <div className={styles.cartItem__qty}>
-                    <label htmlFor="qty">Qty</label>
-                    <input
-                      min="1"
-                      type="number"
-                      id="qty"
-                      name="qty"
-                      // value={input}
-                      // onChange={onChangeHandler}
-                    />
+                    <label htmlFor="qty">{item.priceUnit}</label>
                   </div>
-                  <button
-                    // onClick={() => removeFromCart(item.id)}
-                    className={styles.actions__deleteItemBtn}
-                  >
-                    <img
-                      src="https://image.flaticon.com/icons/svg/709/709519.svg"
-                      alt=""
-                    />
+                  <button className={styles.actions__deleteItemBtn} onClick={() => handleDElete(item)}>
+                    <img src="https://image.flaticon.com/icons/svg/709/709519.svg" alt=""/>
                   </button>
                 </div>
               </Card.Body>
-            </Card>
-
-            <p>เพิ่มproduct ได้</p>
-            <p>
-              แก้ไขแต่ละproductได้/ลบ ประมาณhistoryในprofileก็ได้ หรือ
-              ออกแบบใหม่เลย
-            </p>
+            </Card>)}
           </div>
         </div>
-      </Row>
+
     </div>
   );
 }
