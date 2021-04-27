@@ -16,7 +16,7 @@
    - customer
       - [x] หน้าHome
         - [x] แสดงproduct
-        - [ ] filter #ถ้าทัน
+        - [x] filter #ถ้าทัน
       - [x] หน้าDetail Product
         - [x] แสดงข้อมูลProduct
         - [x] แสดงข้อมูลCompany
@@ -27,9 +27,9 @@
         - [ ] history order ไม่ทำแล้ว
    - company
       - [ ] แสดง Product ของ company
-      - [ ] เพิ่ม Product
+      - [x] เพิ่ม Product
       - [ ] แก้ Product
-      - [ ] ลบ Product
+      - [x] ลบ Product
       - [ ] 
 
   # AWS
