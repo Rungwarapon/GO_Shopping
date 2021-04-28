@@ -8,7 +8,7 @@
 
 # Work progress    [ ]ไม่รวมตกแต่ง
    - Authen
-      - [ ] register
+      - [x] register
       - [ ] login/logout 
       - [ ] forgot password
       - [ ] change password
@@ -20,10 +20,9 @@
       - [x] หน้าDetail Product
         - [x] แสดงข้อมูลProduct
         - [x] แสดงข้อมูลCompany
-      - [x] หน้า Profile
+      - [x] หน้า Profile #รอ Authenเสร็จ
         - [ ] แสดงข้อมูล User ที่ Login #รอ Authenเสร็จ
         - [ ] Edit User
-        - [ ] chang password #ถ้าทัน
         - [ ] history order ไม่ทำแล้ว
    - company
       - [ ] แสดง Product ของ company
@@ -32,6 +31,4 @@
       - [x] ลบ Product
       - [ ] 
 
-  # AWS
-    - [ ]
-    - [ ]
+
