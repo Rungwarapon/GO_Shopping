@@ -7,16 +7,16 @@ function Login() {
     const [email, setemail] = useState();
     const [password, setpassword] = useState();
     const [companyName, setcompanyName] = useState();
-    // const [location, setlocation] = useState();
-    // const [tell, settell] = useState();
+    const [location, setlocation] = useState();
+    const [tell, settell] = useState();
 
     const handleSubmit = (event) => {
         event.preventDefault();
         let body = {
             password:password,
             companyName: companyName,
-            // location: location,
-            // tell: tell,
+            address: location,
+            phoneNumber: tell,
             email: email 
         }
         Axios.post('http://localhost:3001/api/users/create', body).then((response) => {
@@ -39,16 +39,16 @@ function Login() {
         console.log(fieldVal);
         setcompanyName(fieldVal)
       }
-    //   const handleChangelocation = (event) => {
-    //     let fieldVal = event.target.value;
-    //     console.log(fieldVal);
-    //     setlocation(fieldVal)
-    //   }
-    //   const handleChangetell = (event) => {
-    //     let fieldVal = event.target.value;
-    //     console.log(fieldVal);
-    //     settell(fieldVal)
-    //   }
+      const handleChangelocation = (event) => {
+        let fieldVal = event.target.value;
+        console.log(fieldVal);
+        setlocation(fieldVal)
+      }
+      const handleChangetell = (event) => {
+        let fieldVal = event.target.value;
+        console.log(fieldVal);
+        settell(fieldVal)
+      }
 
 
       
@@ -82,7 +82,7 @@ function Login() {
                     <Form.Control type="text" placeholder="company name" />
                 </Form.Group>
                 
-                {/* <Form.Group value={tell} onChange={handleChangetell}>
+                <Form.Group value={tell} onChange={handleChangetell}>
                     <Form.Label>Phone number</Form.Label>
                     <Form.Control type="text" placeholder="Phone number" />
                 </Form.Group>
@@ -90,7 +90,7 @@ function Login() {
                 <Form.Group value={location} onChange={handleChangelocation}>
                     <Form.Label>Location</Form.Label>
                     <Form.Control type="text" placeholder="Location" />
-                </Form.Group> */}
+                </Form.Group>
 
                 <Button variant="primary" href='/login' type="submit" >
                     Submit
