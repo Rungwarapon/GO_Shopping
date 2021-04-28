@@ -1,64 +1,100 @@
 import { Form, Button, Col, Row} from 'react-bootstrap';
 import Nav from "../navbar/navbar"
+import Axios from 'axios';
+import React, { useState, useEffect } from "react";
+
 function Login() {
+    const [email, setemail] = useState();
+    const [password, setpassword] = useState();
+    const [companyName, setcompanyName] = useState();
+    // const [location, setlocation] = useState();
+    // const [tell, settell] = useState();
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        let body = {
+            password:password,
+            companyName: companyName,
+            // location: location,
+            // tell: tell,
+            email: email 
+        }
+        Axios.post('http://localhost:3001/api/users/create', body).then((response) => {
+            console.log(response.data)
+        })
+      }
+
+      const handleChangeemail = (event) => {
+        let fieldVal = event.target.value;
+        console.log(fieldVal);
+        setemail(fieldVal)
+      }
+      const handleChangepassword = (event) => {
+        let fieldVal = event.target.value;
+        console.log(fieldVal);
+        setpassword(fieldVal)
+      }
+      const handleChangecompanyName = (event) => {
+        let fieldVal = event.target.value;
+        console.log(fieldVal);
+        setcompanyName(fieldVal)
+      }
+    //   const handleChangelocation = (event) => {
+    //     let fieldVal = event.target.value;
+    //     console.log(fieldVal);
+    //     setlocation(fieldVal)
+    //   }
+    //   const handleChangetell = (event) => {
+    //     let fieldVal = event.target.value;
+    //     console.log(fieldVal);
+    //     settell(fieldVal)
+    //   }
+
+
+      
     return (
       <div className="App">
         <Nav/>
         <div className="container">
           <h1 className="text-center font-italic ">Register</h1>
-            <Form>
-                <Row>
-                    <Col>
-                    <Form.Label>First name</Form.Label>
-                    <Form.Control placeholder="First name" />
-                    </Col>
-                    <Col>
-                    <Form.Label>Last name</Form.Label>
-                    <Form.Control placeholder="Last name" />
-                    </Col>
-                </Row>
 
-                <Form.Group>
-                    <Form.Label>username</Form.Label>
-                    <Form.Control type="text" placeholder="Username" />
-                </Form.Group>
-
-                <Form.Group controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
-                </Form.Group>
-
-                <Form.Group controlId="formBasicPassword">
-                    <Form.Label>Password confirm</Form.Label>
-                    <Form.Control type="password" placeholder="Password confirm" />
-                </Form.Group>
-
-                <Form.Group controlId="formBasicEmail">
+            <Form onSubmit={handleSubmit}>
+                <Form.Group controlId="formBasicEmail" value={email} onChange={handleChangeemail}>
                     <Form.Label>Email address</Form.Label>
                     <Form.Control type="email" placeholder="Enter email" />
                     <Form.Text className="text-muted">
                     We'll never share your email with anyone else.
                     </Form.Text>
                 </Form.Group>
-                <Form.Group>
-                    <Form.Label>Phone number</Form.Label>
-                    <Form.Control type="text" placeholder="Phone number" />
+
+                <Form.Group controlId="formBasicPassword"  value={password} onChange={handleChangepassword}>
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
-                <Form.Group>
+
+                {/* <Form.Group controlId="formBasicPassword">
+                    <Form.Label>Password confirm</Form.Label>
+                    <Form.Control type="password" placeholder="Password confirm" />
+                </Form.Group> */}
+
+                <Form.Group value={companyName} onChange={handleChangecompanyName}>
                     <Form.Label>company</Form.Label>
                     <Form.Control type="text" placeholder="company name" />
                 </Form.Group>
-                <Form.Group>
-                    <Form.Label>Location</Form.Label>
-                    <Form.Control type="text" placeholder="Location" />
-                </Form.Group>
-                <Form.Group class="custom-file">
-                    <Form.Label>document</Form.Label>
-                    <Form.Control type="file" class="custom-file-input" placeholder="company name" />
+                
+                {/* <Form.Group value={tell} onChange={handleChangetell}>
+                    <Form.Label>Phone number</Form.Label>
+                    <Form.Control type="text" placeholder="Phone number" />
                 </Form.Group>
 
-                <Button variant="primary" type="submit" href="/login">
+                <Form.Group value={location} onChange={handleChangelocation}>
+                    <Form.Label>Location</Form.Label>
+                    <Form.Control type="text" placeholder="Location" />
+                </Form.Group> */}
+
+                <Button variant="primary" href='/login' type="submit" >
                     Submit
+                    
                 </Button>
             </Form>
         </div>

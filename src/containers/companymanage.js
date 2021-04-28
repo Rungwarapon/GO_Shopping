@@ -86,7 +86,7 @@ function MydModalWithGrid(props) {
               <Col xs={12} md={7}>
                 <label value={priceUnit}onChange={handleChangepriceUnit}>
                   Price Unit : 
-                  <input type="text" name="Product Unit"></input>
+                  <input type="number" name="Product Unit"></input>
                 </label>
               </Col>
             </Row>
@@ -147,41 +147,52 @@ function Companymanage() {
     <div className="App">
       <Nav />
         <div className="container">
-          <Button variant="primary" onClick={() => setModalShow(true)}>
-            Add Product
-          </Button>
+          <br/>
+          <div style={{ display: 'flex'}}>
+            <div style={{ width: '85%'}}><h1>Manage Product</h1></div>
+            <div><Button variant="primary" onClick={() => setModalShow(true)}>
+              Add Product
+            </Button></div>
+          </div>
+          
 
           <MydModalWithGrid
             show={modalShow}
             onHide={() => setModalShow(false)}
           />
-        </div>
+        
 
         <div className="order">
-          <div className='sizecard'>
-            {Product.map(item => <Card className='card'>
-              <Card.Img
-                variant="top"
-                src={item.photos}
-              />
-              <Card.Body>
-                <Card.Title>{item.productName}</Card.Title>
-                <Card.Text>
-                {item.detail}
-                </Card.Text>
-                <div className={styles.cartItem__actions}>
-                  <div className={styles.cartItem__qty}>
-                    <label htmlFor="qty">{item.priceUnit}</label>
-                  </div>
-                  <button className={styles.actions__deleteItemBtn} onClick={() => handleDElete(item)}>
-                    <img src="https://image.flaticon.com/icons/svg/709/709519.svg" alt=""/>
-                  </button>
-                </div>
-              </Card.Body>
-            </Card>)}
-          </div>
-        </div>
+          
 
+            {Product.map(item => 
+            <div className='sizecard'>
+              <Card className='card'>
+                <Card.Img
+                  variant="top"
+                  src={item.photos} style={{ width: '100%', height: 'Auto'}}
+                />
+                <Card.Body style={{ height: '300px'}}>
+                  <Card.Title style={{ height: '6vh'}}>{item.productName}</Card.Title>
+                  <Card.Text>
+                  {item.detail}
+                  </Card.Text>
+                  <div className={styles.cartItem__actions}>
+                    <div className={styles.cartItem__qty}>
+                      <label htmlFor="qty">{item.priceUnit}</label>
+                    </div>
+                    <button className={styles.actions__deleteItemBtn} onClick={() => handleDElete(item)}>
+                      <img src="https://image.flaticon.com/icons/svg/709/709519.svg" alt=""/>
+                    </button>
+                    
+                  </div>
+                </Card.Body>
+              </Card>
+            </div>
+            )}
+          
+        </div>
+        </div>
     </div>
   );
 }
