@@ -1,9 +1,11 @@
 import Axios from 'axios';
 import { useState } from 'react';
 import { Navbar, Nav, NavDropdown, Form, Button, FormControl } from 'react-bootstrap';
+import { useHistory } from 'react-router';
 
 
 function App() {
+  const history = useHistory();
   const [searchProduct, setSearchProduct] = useState('');
 
   const handleChange = (event) => {
@@ -20,6 +22,11 @@ function App() {
     Axios.post('http://localhost:3001/api/index/search', body).then((response) => {
       console.log(response.data)
     })
+  }
+
+  const logout = () => {
+    localStorage.removeItem('userToken');
+    history.push('/login');
   }
 
   return (
@@ -58,7 +65,7 @@ function App() {
             <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
             <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item href="/Login">Logout</NavDropdown.Item>
+            <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
           </NavDropdown>
         </div>
       </Navbar>
