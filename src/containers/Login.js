@@ -23,14 +23,15 @@ function Login() {
       // var token = localStorage.getItem('userToken');
       var secretKey = "secret";
       var jsonPayload = jwt_decode(response.data.tokens, secretKey);
-      // console.log(response.data.isAdmin)
+      console.log(response.data.isAdmin)
       
       localStorage.setItem('datauser', JSON.stringify(jsonPayload));
-      if (response.data.isAdmin == false){
-        history.push('/')
+      if (response.data.isAdmin){
+        history.push('/adminmanage')
+        
         
       }else{
-        history.push('/adminmanage')
+        history.push('/')
       }
           }).catch((err) => {
             Swal.fire({
