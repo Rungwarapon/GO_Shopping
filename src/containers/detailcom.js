@@ -20,10 +20,10 @@ function Comdetail(prop) {
             </div>
             <div className="contactdetail">
                 <div style={{ padding:'6%' }}>
-                <p className='pdetailaddress'>Phone:{ComDee.tell}</p>
+                <p className='pdetailaddress'>Phone:{ComDee.phoneNumber}</p>
                 <p className='pdetailaddress'>Mail: {ComDee.email}</p>
                 {/* <p className='pdetailaddress'>Line: intal thailand</p> */}
-                <p className='pdetailaddress'>Address: {ComDee.location} </p>
+                <p className='pdetailaddress'>Address: {ComDee.address} </p>
                 </div>
             </div>
         </div>         

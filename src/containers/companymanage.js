@@ -15,7 +15,7 @@ function MydModalWithGrid(props) {
   const [photos, setphotos] = useState();
   const [detail, setdetail] = useState();
   const [userId, setuserId] = useState();
-  
+  const data = JSON.parse(localStorage.getItem('datauser'))
 
 
   const handleSubmit = (event) => {
@@ -25,7 +25,7 @@ function MydModalWithGrid(props) {
       priceUnit: priceUnit,
       photos:photos,
       detail:detail,
-      userId:userId
+      userId:data._id
     }
     Axios.post('http://localhost:3001/api/products/create', body).then((response) => {
       // setSearchValue(response.data)
@@ -123,9 +123,10 @@ function MydModalWithGrid(props) {
 function Companymanage() {
   const [modalShow, setModalShow] = useState(false);
   const [Product, SetProduct] = useState([]);
-
+  const data = JSON.parse(localStorage.getItem('datauser'))
+  
   const fetchData = () => {
-    Axios.get("http://localhost:3001/api/products").then((res) => {
+    Axios.get("http://localhost:3001/api/products/user/" + data._id).then((res) => {
       SetProduct(res.data);
     });
   };
@@ -144,7 +145,7 @@ function Companymanage() {
   }
 
   return (
-    <div className="App">
+     <div className="App">
       <Nav />
         <div className="container">
           <br/>
@@ -194,6 +195,7 @@ function Companymanage() {
         </div>
         </div>
     </div>
+   
   );
 }
 

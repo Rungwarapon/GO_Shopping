@@ -13,17 +13,24 @@ import React, { useState, useEffect } from "react";
 //   }
 // } 
 const Profile =()=> {
-    const [User, SetUser] = useState()
-    const [Firstname, SetFirstname] = useState()
-    const [Lastname, SetLastname] = useState()
+    const [id, SetId] = useState()
+    const [companyName, SetcompanyName] = useState()
+    const [phoneNumber, SetphoneNumber] = useState()
     const [Email, SetEmail] = useState()
+    const [photos, Setphotos] = useState()
+    const [type, Settype] = useState()
+
+    const data = JSON.parse(localStorage.getItem('datauser'))
+    console.log(data)
     const fetchData =()=> {
       Axios.get("http://localhost:3001/api/users").then(
           res => { 
-            SetUser(res.data[0].User)
-            SetFirstname(res.data[0].firstName)
-            SetLastname(res.data[0].lastName)
-            SetEmail(res.data[0].email)
+            SetId(data._id)
+            SetcompanyName(data.companyName)
+            SetphoneNumber(data.phoneNumber)
+            SetEmail(data.email)
+            Setphotos(data.photos)
+            Settype(data.type)
           })
     }
 
@@ -47,11 +54,11 @@ const Profile =()=> {
                 <div className="right">
                   <div style={{ height:"10em" }}>
                     <Row>
-                        <Col><p><b>Firstname :</b> {Firstname} </p></Col> 
-                        <Col><p><b>Lastname :</b> {Lastname}</p></Col>
+                        <Col><p><b>Id :</b> {id} </p></Col> 
+                        <Col><p><b>companyName :</b> {companyName}</p></Col>
                     </Row>
                     <p><b>Email :</b> {Email}</p>
-                    <p><b>Phone number :</b> 0860606060</p>
+                    <p><b>Phone number :</b>{phoneNumber}</p>
                   </div>
                   <div>
                     <h3>Order history</h3>

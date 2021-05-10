@@ -26,6 +26,7 @@ function App() {
 
   const logout = () => {
     localStorage.removeItem('userToken');
+    localStorage.removeItem('datauser');
     history.push('/login');
   }
 
@@ -35,18 +36,7 @@ function App() {
         <div className="container">
           <Navbar.Brand className="text-light" href="/">Go Shopping</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            {/* <Nav className="mr-auto">
-                <Nav.Link href="#home">Home</Nav.Link>
-                <Nav.Link href="#link">Link</Nav.Link>
-                <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                </NavDropdown>
-            </Nav> */}
+          {/* <Navbar.Collapse id="basic-navbar-nav">
             <Form inline onSubmit={handleSubmit}>
               <FormControl
                 type="text"
@@ -58,15 +48,16 @@ function App() {
               />
               <Button variant="outline-success" type="submit">Search</Button>
             </Form>
-          </Navbar.Collapse>
-          <Nav.Link href="/companymanage">company manage page test and build</Nav.Link>
+          </Navbar.Collapse> */}
+          {localStorage.getItem('userToken')?<Nav.Link href="/companymanage">company manage page test and build
           <NavDropdown title="Menu" id="basic-nav-dropdown">
             <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
             <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
             <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
-          </NavDropdown>
+          </NavDropdown></Nav.Link>:<Nav.Link href="/login">Login</Nav.Link>}
+          
         </div>
       </Navbar>
     </div >
