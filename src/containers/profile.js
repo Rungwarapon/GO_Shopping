@@ -59,47 +59,10 @@ const Profile =()=> {
                     </Row>
                     <p><b>Email :</b> {Email}</p>
                     <p><b>Phone number :</b>{phoneNumber}</p>
+                    <p><b>สถานะ :</b>{type}</p>
                   </div>
                   <div>
-                    <h3>Order history</h3>
-                    <table className="table">
-                      <thead>
-                        <tr>
-                          <th scope="col">Id</th>
-                          <th scope="col">Product</th>
-                          <th scope="col">Company</th>
-                          <th scope="col">Number</th>
-                          <th scope="col">Total price</th>
-                          <th scope="col">State</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>CPU CORE I7-9700F (Original)</td>
-                          <td>บริษัท123456 จำกัด</td>
-                          <td>5000 ชิ้น</td>
-                          <td>60000000 บาท</td>
-                          <td>success</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>CPU CORE I7-9700F (Original)</td>
-                          <td>บริษัท123456 จำกัด</td>
-                          <td>5000 ชิ้น</td>
-                          <td>60000000 บาท</td>
-                          <td>waiting</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>CPU CORE I7-9700F (Original)</td>
-                          <td>บริษัท123456 จำกัด</td>
-                          <td>5000 ชิ้น</td>
-                          <td>60000000 บาท</td>
-                          <td>cancel</td>
-                        </tr>
-                      </tbody>
-                    </table>
+                    
                   </div>
                 </div>
               </div>

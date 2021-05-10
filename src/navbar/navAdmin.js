@@ -34,7 +34,7 @@ function App() {
     <div>
       <Navbar bg="dark" expand="lg">
         <div className="container">
-          <Navbar.Brand className="text-light" href="/">Go Shopping</Navbar.Brand>
+          <Navbar.Brand className="text-light" href="/adminmanage">Go Shopping</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           {/* <Navbar.Collapse id="basic-navbar-nav">
             <Form inline onSubmit={handleSubmit}>
@@ -49,12 +49,8 @@ function App() {
               <Button variant="outline-success" type="submit">Search</Button>
             </Form>
           </Navbar.Collapse> */}
-          {localStorage.getItem('userToken')?<Nav.Link href="/companymanage">company manage page test and build
-          <NavDropdown title="Menu" id="basic-nav-dropdown">
-            <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
-          </NavDropdown></Nav.Link>:<Nav.Link href="/login">Login</Nav.Link>}
+          <Nav.Link href="/adminuser">All Company</Nav.Link>
+          {localStorage.getItem('userToken')?<Nav.Link onClick={logout}>logout</Nav.Link>:<Nav.Link href="/login">Login</Nav.Link>}
           
         </div>
       </Navbar>
