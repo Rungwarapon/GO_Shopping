@@ -44,7 +44,7 @@ function Detailproduct(prop) {
                     <div style={{ height:"10em" }}>
                       <p className='sizedetail'>{ProductDe.detail}</p>
                     </div>
-                    {/* <Comdetail id={ProductDe.userId}/> */}
+                    <Comdetail id={ProductDe.userId}/>
                     <div>
                       <p className='sizedetail'>ราคา : {ProductDe.priceUnit} บาท</p>
                     </div>

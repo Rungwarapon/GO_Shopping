@@ -19,13 +19,19 @@ function Login() {
     }
     axios.post('http://localhost:3001/api/auths/login', body).then((response) => {
       localStorage.setItem('userToken', response.data.tokens);
+      // localStorage.setItem('isAdmin', response.data.isAdmin);
       // var token = localStorage.getItem('userToken');
       var secretKey = "secret";
       var jsonPayload = jwt_decode(response.data.tokens, secretKey);
-      console.log(jsonPayload)
-      // Console.WriteLine(jsonPayload);
+      // console.log(response.data.isAdmin)
+      
       localStorage.setItem('datauser', JSON.stringify(jsonPayload));
-      history.push('/')
+      if (response.data.isAdmin == false){
+        history.push('/')
+        
+      }else{
+        history.push('/adminmanage')
+      }
           }).catch((err) => {
             Swal.fire({
               icon:'error',
