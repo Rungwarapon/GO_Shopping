@@ -2,25 +2,32 @@ import { Form, Button, Col, Row} from 'react-bootstrap';
 import Nav from "../navbar/navbar"
 import Axios from 'axios';
 import React, { useState, useEffect } from "react";
+import { useHistory } from 'react-router';
+import Loader from "react-loader-spinner";
 
-function Login() {
+function Register() {
     const [email, setemail] = useState();
     const [password, setpassword] = useState();
     const [companyName, setcompanyName] = useState();
     const [location, setlocation] = useState();
     const [tell, settell] = useState();
+    const [file, setfile] = useState();
+    const history = useHistory();
+    const [load, setload] = useState(false)
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        let body = {
-            password:password,
-            companyName: companyName,
-            address: location,
-            phoneNumber: tell,
-            email: email 
-        }
-        Axios.post('http://localhost:3001/api/users/create', body).then((response) => {
-            console.log(response.data)
+        let formData = new FormData();
+        formData.append("email", email);
+        formData.append("password", password);
+        formData.append("companyName", companyName);
+        formData.append("address", location);
+        formData.append("phoneNumber", tell);
+        formData.append("type", "pending");
+        formData.append("photos", file);
+
+        Axios.post('http://localhost:3001/api/users/create', formData, setload(true)).then((response) => {
+          history.push('/login')
         })
       }
 
@@ -49,6 +56,11 @@ function Login() {
         console.log(fieldVal);
         settell(fieldVal)
       }
+      const handleChangefile = (event) => {
+        let fieldVal = event.target.files[0];
+        console.log(fieldVal);
+        setfile(fieldVal)
+      }
 
 
       
@@ -58,7 +70,7 @@ function Login() {
         <div className="container">
           <h1 className="text-center font-italic ">Register</h1>
 
-            <Form onSubmit={handleSubmit}>
+            {load?<center><Loader type="Puff"color="#00BFFF"height={100}width={100}/></center>:<Form onSubmit={handleSubmit}>
                 <Form.Group controlId="formBasicEmail" value={email} onChange={handleChangeemail}>
                     <Form.Label>Email address</Form.Label>
                     <Form.Control type="email" placeholder="Enter email" />
@@ -92,15 +104,20 @@ function Login() {
                     <Form.Control type="text" placeholder="Location" />
                 </Form.Group>
 
-                <Button variant="primary" href='/login' type="submit" >
+                <Form.Group value={file} onChange={handleChangefile}>
+                    <Form.Label>file</Form.Label>
+                    <Form.Control type="file" placeholder="file" />
+                </Form.Group>
+
+                <Button variant="primary" type="submit" >
                     Submit
                     
                 </Button>
-            </Form>
+            </Form>}
         </div>
       </div>
     );
   }
   
-  export default Login;
+  export default Register;
   

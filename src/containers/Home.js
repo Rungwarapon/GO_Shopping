@@ -11,8 +11,9 @@ function Home() {
   const [ID, SetID] = useState();
   const [searchValue, setSearchValue] = useState('');
   const [searchProduct, setSearchProduct] = useState('');
+  const [load, setload] = useState(false)
   const fetchData = () => {
-    Axios.get("http://localhost:3001/api/products").then((res) => {
+    Axios.get("http://localhost:3001/api/products", setload(true)).then((res) => {
       SetProduct(res.data);
     });
   };
@@ -46,6 +47,7 @@ function Home() {
         <Nav/>
         <div className="container">
 
+            
             <Form inline onSubmit={handleSubmit}>
               <FormControl
                 type="text"
@@ -57,13 +59,15 @@ function Home() {
               />
               <Button variant="outline-success" type="submit">Search</Button>
             </Form>
-
+        
             <br/><h1 className="text-center font-italic">Product</h1><br/>
             <div className="order">
             {searchValue == '' ? Product.map(item =>
                 <div className='sizecard'>
                   <div className="card">
-                    <img className="card-img-top" src={item.photos} alt="Card image cap" style={{ width: '100%', height: 'Auto'}}/>
+                    <div style={{ width: '100%', height: '300px'}}>
+                      <img className="card-img-top" src={item.photos} alt="Card image cap" style={{ width: '100%', height: '100%'}}/>
+                    </div>
                     <div className="card-body">
                       <h5 className="nameproductinhome">{item.productName}</h5>
                     </div>
@@ -78,7 +82,9 @@ function Home() {
             ): searchValue.map(item => 
             <div className='sizecard'>
               <div className="card">
-                    <img className="card-img-top" src={item.photos} alt="Card image cap" style={{ width: '100%', height: 'Auto'}}/>
+                  <div style={{ width: '100%', height: '300px'}}>
+                    <img className="card-img-top" src={item.photos} alt="Card image cap" style={{ width: '100%', height: '100%'}}/>
+                  </div>
                     <div className="card-body">
                       <h5 className="nameproductinhome">{item.productName}</h5>
                     </div>

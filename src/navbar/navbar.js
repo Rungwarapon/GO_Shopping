@@ -27,6 +27,7 @@ function App() {
   const logout = () => {
     localStorage.removeItem('userToken');
     localStorage.removeItem('datauser');
+    localStorage.removeItem('userId');
     history.push('/login');
   }
 

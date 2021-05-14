@@ -46,7 +46,7 @@ const Profile =()=> {
             <br/><h1 className="text-center font-italic">Profile page</h1><br/>
             <div className="containerProfile">
               <div className="itemProfile1">
-                <img src="/images/test.jpeg"></img>
+                <img src={photos}></img>
                 {/* <Button variant="outline-success">Edit Profile</Button>
                 <Button variant="outline-success">Change Password</Button> */}
               </div>

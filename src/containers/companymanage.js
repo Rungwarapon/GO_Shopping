@@ -14,6 +14,7 @@ import {
   Container,
 } from "react-bootstrap";
 import Axios from "axios";
+import Loader from "react-loader-spinner";
 
 function MydModalWithGrid(props) {
   const [productName, setproductName] = useState();
@@ -22,6 +23,7 @@ function MydModalWithGrid(props) {
   const [detail, setdetail] = useState();
   const [userId, setuserId] = useState();
   const data = localStorage.getItem("userId");
+  const [ load, setload] = useState(false)
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -32,19 +34,20 @@ function MydModalWithGrid(props) {
     formData.append("userId", data);
     formData.append("photos", photos);
 
-    Axios.post("http://localhost:3001/api/products/create", formData).then(
+    Axios.post("http://localhost:3001/api/products/create", formData, setload(true)).then(
       (response) => {
         // setSearchValue(response.data)
         setproductName("");
         setpriceUnit("");
         setphotos("");
         setdetail("");
+        setTimeout(3000)
         window.location.reload(true);
       }
     );
 
     // props.onHide()
-    // setTimeout(3000)
+    
     // window.location.reload(true);
   };
 
@@ -112,6 +115,8 @@ function MydModalWithGrid(props) {
             </Row>
           </Container>
         </Modal.Body>
+        {load ?<center><Loader type="Puff"color="#00BFFF"height={100}width={100}/></center>:''}
+        
         <Modal.Footer>
           <Button variant="outline-success" type="submit">
             Add
@@ -123,15 +128,15 @@ function MydModalWithGrid(props) {
 }
 
 function MyDetailGrid(props) {
-  const [productName, setproductName] = useState();
-  const [priceUnit, setpriceUnit] = useState();
-  const [photos, setphotos] = useState();
-  const [detail, setdetail] = useState();
-  const [userId, setuserId] = useState();
+  const [productid, setproductid] = useState(props._id)
+  const [productName, setproductName] = useState(props.productName);
+  const [priceUnit, setpriceUnit] = useState(props.priceUnit);
+  const [photos, setphotos] = useState(props.photos);
+  const [detail, setdetail] = useState(props.detail);
+  const [userId, setuserId] = useState(props.userId);
   const data = localStorage.getItem("userId");
-
+  
   const handleSubmit = (event) => {
-
     event.preventDefault();
     let formData = new FormData();
     formData.append("productName", productName);
@@ -140,9 +145,10 @@ function MyDetailGrid(props) {
     formData.append("userId", data);
     formData.append("photos", photos);
 
-    Axios.post("http://localhost:3001/api/products/create", formData).then(
+    Axios.post("http://localhost:3001/api/products/edit/"+ productid, formData).then(
       (response) => {
         // setSearchValue(response.data)
+        setproductid("")
         setproductName("");
         setpriceUnit("");
         setphotos("");
@@ -172,7 +178,7 @@ function MyDetailGrid(props) {
     setdetail(fieldVal);
   };
   const handleChangephotos = (event) => {
-    let fieldVal = event.target.value;
+    let fieldVal = event.target.files[0];
     console.log(fieldVal);
     setphotos(fieldVal);
   };
@@ -215,7 +221,7 @@ function MyDetailGrid(props) {
                 </label>
               </Col>
             </Row>
-            <Row>
+            {/* <Row>
               <Col xs={6} md={4}>
                 <img
                   src="https://www.nobossgroup.com/wp-content/themes/eikra/assets/img/noimage-420x273.jpg"
@@ -225,7 +231,7 @@ function MyDetailGrid(props) {
                   height="200"
                 ></img>
               </Col>
-            </Row>
+            </Row> */}
           </Container>
         </Modal.Body>
         <Modal.Footer>
@@ -286,14 +292,18 @@ function Companymanage() {
         <MydModalWithGrid show={modalShow} onHide={() => setModalShow(false)} />
 
         <div className="order">
+
+          
           {Product.map((item) => (
             <div className="sizecard">
               <Card className="card">
+              <div style={{ width: '100%', height: '300px'}}>
                 <Card.Img
                   variant="top"
                   src={item.photos}
                   style={{ width: "100%", height: "Auto" }}
                 />
+              </div>
                 <Card.Body style={{ height: "300px" }}>
                   <Card.Title style={{ height: "6vh" }}>
                     {item.productName}
@@ -323,7 +333,7 @@ function Companymanage() {
                     </Button>
                   </div>
 
-                  <MyDetailGrid
+                  <MyDetailGrid id={Axios.get("http://localhost:3001/api/products/" + item._id)}
                     show={showDetail}
                     onHide={() => setShowDetail(false)}
                   />

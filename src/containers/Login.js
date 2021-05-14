@@ -30,7 +30,6 @@ function Login() {
       if (response.data.isAdmin){
         history.push('/adminmanage')
         
-        
       }else{
         history.push('/')
       }
