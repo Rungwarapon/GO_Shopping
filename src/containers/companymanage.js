@@ -21,7 +21,7 @@ function MydModalWithGrid(props) {
   const [photos, setphotos] = useState();
   const [detail, setdetail] = useState();
   const [userId, setuserId] = useState();
-  const data = JSON.parse(localStorage.getItem("datauser"));
+  const data = localStorage.getItem("userId");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -29,7 +29,7 @@ function MydModalWithGrid(props) {
     formData.append("productName", productName);
     formData.append("priceUnit", priceUnit);
     formData.append("detail", detail);
-    formData.append("userId", data._id);
+    formData.append("userId", data);
     formData.append("photos", photos);
 
     Axios.post("http://localhost:3001/api/products/create", formData).then(
@@ -64,8 +64,8 @@ function MydModalWithGrid(props) {
     setdetail(fieldVal);
   };
   const handleChangephotos = (event) => {
-    let fieldVal = event.target.value;
-    console.log(fieldVal);
+    let fieldVal = event.target.files[0];
+    console.log(event.target.files[0]);
     setphotos(fieldVal);
   };
 
@@ -76,7 +76,7 @@ function MydModalWithGrid(props) {
           Add New Product
         </Modal.Title>
       </Modal.Header>
-      <form onSubmit={handleSubmit}>
+      <form encType="multipart/form-data" onSubmit={handleSubmit}>
         <Modal.Body className="show-grid">
           <Container>
             <Row>
@@ -128,18 +128,19 @@ function MyDetailGrid(props) {
   const [photos, setphotos] = useState();
   const [detail, setdetail] = useState();
   const [userId, setuserId] = useState();
-  const data = JSON.parse(localStorage.getItem("datauser"));
+  const data = localStorage.getItem("userId");
 
   const handleSubmit = (event) => {
+
     event.preventDefault();
-    let body = {
-      productName: productName,
-      priceUnit: priceUnit,
-      photos: photos,
-      detail: detail,
-      userId: data._id,
-    };
-    Axios.post("http://localhost:3001/api/products/create", body).then(
+    let formData = new FormData();
+    formData.append("productName", productName);
+    formData.append("priceUnit", priceUnit);
+    formData.append("detail", detail);
+    formData.append("userId", data);
+    formData.append("photos", photos);
+
+    Axios.post("http://localhost:3001/api/products/create", formData).then(
       (response) => {
         // setSearchValue(response.data)
         setproductName("");
@@ -245,10 +246,10 @@ function Companymanage() {
   const [modalShow, setModalShow] = useState(false);
   const [showDetail, setShowDetail] = useState(false);
   const [Product, SetProduct] = useState([]);
-  const data = JSON.parse(localStorage.getItem("datauser"));
+  const data = localStorage.getItem("userId");
 
   const fetchData = () => {
-    Axios.get("http://localhost:3001/api/products/user/" + data._id).then(
+    Axios.get("http://localhost:3001/api/products/user/" + data).then(
       (res) => {
         SetProduct(res.data);
       }
@@ -261,7 +262,7 @@ function Companymanage() {
 
   const handleDElete = (item) => {
     Axios.delete("http://localhost:3001/api/products/delete/" + item._id).then(
-      (res) => {}
+      (res) => { }
     );
     window.location.reload(true);
   };

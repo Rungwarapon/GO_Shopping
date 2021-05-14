@@ -19,6 +19,7 @@ function Login() {
     }
     axios.post('http://localhost:3001/api/auths/login', body).then((response) => {
       localStorage.setItem('userToken', response.data.tokens);
+      localStorage.setItem('userId', response.data.userId);
       // localStorage.setItem('isAdmin', response.data.isAdmin);
       // var token = localStorage.getItem('userToken');
       var secretKey = "secret";
