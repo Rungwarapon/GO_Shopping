@@ -25,14 +25,14 @@ function MydModalWithGrid(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    let body = {
-      productName: productName,
-      priceUnit: priceUnit,
-      photos: photos,
-      detail: detail,
-      userId: data._id,
-    };
-    Axios.post("http://localhost:3001/api/products/create", body).then(
+    let formData = new FormData();
+    formData.append("productName", productName);
+    formData.append("priceUnit", priceUnit);
+    formData.append("detail", detail);
+    formData.append("userId", data._id);
+    formData.append("photos", photos);
+
+    Axios.post("http://localhost:3001/api/products/create", formData).then(
       (response) => {
         // setSearchValue(response.data)
         setproductName("");

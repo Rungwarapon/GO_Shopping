@@ -15,7 +15,7 @@ function Comdetail(prop) {
 
     return (  
         <div>
-            <div className="companyname">
+            <div className="companyName">
                 <h3 className="namecom">บริษัท: {ComDee.companyName}</h3>
             </div>
             <div className="contactdetail">
