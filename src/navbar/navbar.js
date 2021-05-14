@@ -2,6 +2,7 @@ import Axios from 'axios';
 import { useState } from 'react';
 import { Navbar, Nav, NavDropdown, Form, Button, FormControl } from 'react-bootstrap';
 import { useHistory } from 'react-router';
+import companyLogo from './images/GoShopping1.png';
 
 
 function App() {
@@ -35,7 +36,14 @@ function App() {
     <div>
       <Navbar bg="dark" expand="lg">
         <div className="container">
-          <Navbar.Brand className="text-light" href="/">Go Shopping</Navbar.Brand>
+          <Navbar.Brand className="text-light" href="/">
+          <img
+              src={companyLogo}
+              width="50%"
+              className="d-inline-block align-top"
+              alt="React Bootstrap logo"
+            />
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           {/* <Navbar.Collapse id="basic-navbar-nav">
             <Form inline onSubmit={handleSubmit}>
