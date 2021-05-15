@@ -12,6 +12,7 @@ import {
   Col,
   Modal,
   Container,
+  Form,
 } from "react-bootstrap";
 import Axios from "axios";
 import Loader from "react-loader-spinner";
@@ -82,37 +83,27 @@ function MydModalWithGrid(props) {
       <form encType="multipart/form-data" onSubmit={handleSubmit}>
         <Modal.Body className="show-grid">
           <Container>
-            <Row>
-              <Col xs={12} md={8}>
+          <div class="form-group">  
                 <label value={productName} onChange={handleChangeproductName}>
-                  Product Name :<input type="text" name="Product Name"></input>
+                  Product Name :<br/><input class="form-control" type="text" name="Product Name"></input>
                 </label>
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={12} md={7}>
+              </div>
+            <div class="form-group">  
                 <label value={priceUnit} onChange={handleChangepriceUnit}>
-                  Price Unit :<input type="number" name="Product Unit"></input>
+                  Price Unit :<input class="form-control" type="number" name="Product Unit"></input>
                 </label>
-              </Col>
-            </Row>
-
-            <Row>
-              <Col xs={6} md={4}>
+              </div>
+            <div class="form-group">  
                 <label type="text" value={detail} onChange={handleChangedetail}>
                   Description :
-                  <textarea name="Description" />
+                  <textarea class="form-control" id="exampleFormControlTextarea1" name="Description" />
                 </label>
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={6} md={4}>
+            </div>
+            <div class="form-group">  
                 <label value={photos} onChange={handleChangephotos}>
-                  Choose Image :<input type="file"></input>
+                  Choose Image :<br/><input type="file"></input>
                 </label>
-              </Col>
-              <Col xs={6} md={4}></Col>
-            </Row>
+              </div>
           </Container>
         </Modal.Body>
         {load ?<center><Loader type="Puff"color="#00BFFF"height={100}width={100}/></center>:''}
@@ -191,36 +182,28 @@ function MyDetailGrid(props) {
       <form onSubmit={handleSubmit}>
         <Modal.Body className="show-grid">
           <Container>
-            <Row>
-              <Col xs={12} md={8}>
+          <div class="form-group">  
                 <label value={productName} onChange={handleChangeproductName}>
                   Product Name :<input type="text" name="Product Name"></input>
                 </label>
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={12} md={7}>
+              </div>
+            <div class="form-group">  
                 <label value={priceUnit} onChange={handleChangepriceUnit}>
                   Price Unit :<input type="number" name="Product Unit"></input>
                 </label>
-              </Col>
-            </Row>
+              </div>
 
-            <Row>
-              <Col xs={6} md={4}>
+              <div class="form-group">  
                 <label type="text" value={detail} onChange={handleChangedetail}>
                   Description :
                   <textarea name="Description" />
                 </label>
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={6} md={4}>
+              </div>
+              <div class="form-group">  
                 <label value={photos} onChange={handleChangephotos}>
                   Choose Image :<input type="file"></input>
                 </label>
-              </Col>
-            </Row>
+              </div>
             {/* <Row>
               <Col xs={6} md={4}>
                 <img
@@ -297,7 +280,7 @@ function Companymanage() {
           {Product.map((item) => (
             <div className="sizecard">
               <Card className="card">
-              <div style={{ width: '100%', height: '300px'}}>
+              <div style={{ width: '100%', height: '100%'}}>
                 <Card.Img
                   variant="top"
                   src={item.photos}

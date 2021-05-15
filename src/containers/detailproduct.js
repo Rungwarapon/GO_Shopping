@@ -38,8 +38,9 @@ function Detailproduct(prop) {
             <br/><h1 className="nameproduct"><b>{ProductDe.productName}</b></h1><br/>
             <div className="containerProfile">
               <div className="itemProfile1">
-                <img style={{ width:'100%', border: '1px solid' }} src={ProductDe.photos}></img><br/>
+                <img style={{ width:'70%', border: '1px solid' }} src={ProductDe.photos}></img><br/>
                 <Button variant="primary" href='/'>Back</Button>
+                <br/>
 
               </div>
               <div className="itemProfile2">
@@ -49,7 +50,7 @@ function Detailproduct(prop) {
                     </div>
                     <Comdetail id={ProductDe.userId}/>
                     <div>
-                      <p className='sizedetail'>ราคา : {ProductDe.priceUnit} บาท</p>
+                      <h3 className='sizedetail' >Price : {ProductDe.priceUnit} Baht </h3 >
                     </div>
                   </div>
               </div>

@@ -39,7 +39,7 @@ function App() {
           <Navbar.Brand className="text-light" href="/">
           <img
               src={companyLogo}
-              width="50%"
+              width="70%"
               className="d-inline-block align-top"
               alt="React Bootstrap logo"
             />
@@ -58,13 +58,13 @@ function App() {
               <Button variant="outline-success" type="submit">Search</Button>
             </Form>
           </Navbar.Collapse> */}
-          {localStorage.getItem('userToken')?<Nav.Link href="/companymanage">company manage page test and build
+          {localStorage.getItem('userToken')?<Nav.Link href="/companymanage">Manage your product
           <NavDropdown title="Menu" id="basic-nav-dropdown">
             <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
           </NavDropdown></Nav.Link>:<Nav.Link href="/login">Login</Nav.Link>}
-          
+         
         </div>
       </Navbar>
     </div >

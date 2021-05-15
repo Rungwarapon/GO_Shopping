@@ -16,11 +16,11 @@ function Comdetail(prop) {
     return (  
         <div>
             <div className="companyName">
-                <h3 className="namecom">บริษัท: {ComDee.companyName}</h3>
+                <h3 className="namecom">Company: {ComDee.companyName}</h3>
             </div>
             <div className="contactdetail">
                 <div style={{ padding:'6%' }}>
-                <p className='pdetailaddress'>Phone:{ComDee.phoneNumber}</p>
+                <p className='pdetailaddress'>Phone: {ComDee.phoneNumber}</p>
                 <p className='pdetailaddress'>Mail: {ComDee.email}</p>
                 {/* <p className='pdetailaddress'>Line: intal thailand</p> */}
                 <p className='pdetailaddress'>Address: {ComDee.address} </p>
