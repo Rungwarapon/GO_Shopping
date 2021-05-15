@@ -1,4 +1,4 @@
-import { Card, Button } from "react-bootstrap";
+import { Card, Button, Row, Col } from "react-bootstrap";
 import Nav from "../navbar/navbar"
 // import Nav from "../navbar/navberv2"
 import '../styles/App.css';
@@ -46,8 +46,14 @@ function Home() {
       <div className="App">
         <Nav/>
         <div className="container">
-
             
+        
+            <br/>
+            <Row>
+            <Col md={{ span: 0, offset: 4 }}>
+            <h1 className="text-center font-italic">Product</h1><br/>
+            </Col>
+            <Col md={{ span: 0, offset: 0 }}>
             <Form inline onSubmit={handleSubmit}>
               <FormControl
                 type="text"
@@ -59,8 +65,8 @@ function Home() {
               />
               <Button variant="outline-success" type="submit">Search</Button>
             </Form>
-        
-            <br/><h1 className="text-center font-italic">Product</h1><br/>
+            </Col>
+            </Row>
             <div className="order">
             {searchValue == '' ? Product.map(item =>
                 <div className='sizecard'>

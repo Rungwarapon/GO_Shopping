@@ -25,7 +25,9 @@ const Adminuser =()=> {
       <div className="App">
         <Nav/>
         <div className='container'>
+                    <br />
                     <h3>Company in system</h3>
+                    <br />
                     <table className="table">
                       <thead>
                         <tr>
@@ -43,7 +45,7 @@ const Adminuser =()=> {
                                  <td>{item.phoneNumber}</td>
                                  <td>{item.email}</td>
                                  <td>{item.type}</td>
-                                 <td><Button onClick={()=> Axios.delete("http://localhost:3001/api/admins/reject/" + item._id)}>Delete</Button></td>
+                                 <td><Button variant="danger" onClick={()=> Axios.delete("http://localhost:3001/api/admins/reject/" + item._id)}>Delete</Button></td>
                             </tr>
                             )}
                             

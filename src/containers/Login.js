@@ -46,6 +46,7 @@ function Login() {
     <div className="App">
       <Nav />
       <div className="container">
+        <br />
         <h1 className="text-center font-italic">Login</h1>
         <Form onSubmit={handleSubmit}>
           <Form.Group controlId="formBasicEmail" value={email} onChange={(e) => setEmail(e.target.value)}>
@@ -63,16 +64,17 @@ function Login() {
           <Form.Group controlId="formBasicCheckbox">
             <Form.Check type="checkbox" label="Check me out" />
           </Form.Group>
-          <Button variant="primary" type="submit">
-            Submit
-                </Button>
+          <Button variant="secondary" type="submit">
+            Login
+          </Button>
+          {' '}
+          <Button variant="primary" href="/register">
+            register
+          </Button>
         </Form>
         {/* <Button variant="primary" href="/register">
                    register
             </Button> */}
-        <Button variant="primary" href="/register">
-          register
-            </Button>
       </div>
     </div>
   );

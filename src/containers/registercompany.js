@@ -68,6 +68,7 @@ function Register() {
       <div className="App">
         <Nav/>
         <div className="container">
+          <br />
           <h1 className="text-center font-italic ">Register</h1>
 
             {load?<center><Loader type="Puff"color="#00BFFF"height={100}width={100}/></center>:<Form onSubmit={handleSubmit}>
@@ -90,7 +91,7 @@ function Register() {
                 </Form.Group> */}
 
                 <Form.Group value={companyName} onChange={handleChangecompanyName}>
-                    <Form.Label>company</Form.Label>
+                    <Form.Label>Company</Form.Label>
                     <Form.Control type="text" placeholder="company name" />
                 </Form.Group>
                 
@@ -105,7 +106,7 @@ function Register() {
                 </Form.Group>
 
                 <Form.Group value={file} onChange={handleChangefile}>
-                    <Form.Label>file</Form.Label>
+                    <Form.Label>File</Form.Label>
                     <Form.Control type="file" placeholder="file" />
                 </Form.Group>
 

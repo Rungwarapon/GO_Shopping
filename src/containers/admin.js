@@ -25,7 +25,9 @@ const Admin =()=> {
       <div className="App">
         <Nav/>
         <div className='container'>
-                    <h3>Manage User</h3>
+                      <br />
+                      <h3>Manage User</h3>
+                      <br />
                     <table className="table">
                       <thead>
                         <tr>
