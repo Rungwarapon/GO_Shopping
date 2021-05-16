@@ -50,23 +50,26 @@ function Home() {
         
             <br/>
             <Row>
-            <Col md={{ span: 0, offset: 4 }}>
-            <h1 className="text-center font-italic">Product</h1><br/>
-            </Col>
-            <Col md={{ span: 0, offset: 0 }}>
-            <Form inline onSubmit={handleSubmit}>
+            <Col md={{ span: 5, offset: 3 }}>
+            <Form onSubmit={handleSubmit}>
               <FormControl
                 type="text"
                 name="searchProduct"
                 placeholder="Search"
-                className="mr-sm-2"
+                class="Search"
                 value={searchProduct}
                 onChange={handleChange}
               />
+              </Form>
+              </Col>
+              <Col>
+              <Form>
               <Button variant="outline-success" type="submit">Search</Button>
             </Form>
             </Col>
             </Row>
+            <br/>
+            <br/>
             <div className="order">
             {searchValue == '' ? Product.map(item =>
                 <div className='sizecard'>
@@ -79,7 +82,7 @@ function Home() {
                     </div>
                     <div className="card-footer col">
                       <div className='pricebutton'>
-                        <Button className="hoverbutton" href={"/detailProduct/"+ item._id}>Detail</Button>
+                        <Button variant="primary"  href={"/detailProduct/"+ item._id}>Detail</Button>
                         <p className='spaceprice'><b>price {item.priceUnit}.-</b></p>
                       </div>
                     </div>
@@ -89,7 +92,7 @@ function Home() {
             <div className='sizecard'>
               <div className="card">
                   <div style={{ width: '100%', height: '300px'}}>
-                    <img className="card-img-top" src={item.photos} alt="Card image cap" style={{ width: '100%', height: '100%'}}/>
+                    <img className="card-img-top" src={item.photos} alt="Card image cap" style={{ width: '350px', height: '300px'}}/>
                   </div>
                     <div className="card-body">
                       <h5 className="nameproductinhome">{item.productName}</h5>
@@ -97,7 +100,7 @@ function Home() {
                     <div className="card-footer col">
                       <div className='pricebutton'>
                         <Button className="hoverbutton" href={"/detailProduct/"+ item._id}>Detail</Button>
-                        <p className='spaceprice'><b>price {item.priceUnit}.-</b></p>
+                        <p className='spaceprice'>price <p >{item.priceUnit}.-</p></p>
                       </div>
                     </div>
                   </div>

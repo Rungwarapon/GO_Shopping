@@ -51,25 +51,22 @@ const Profile =()=> {
                 <Button variant="outline-success">Change Password</Button> */}
               </div>
               <div className="itemProfile2">
-                <div className="right">
+                <div className="right"><br/><br/>
                   <div style={{ height:"10em" }}>
                     <Row>
-                        <Col><p><b>Id :</b> {id} </p></Col> 
-                        <Col><p><b>companyName :</b> {companyName}</p></Col>
+                        <Col><p><h4>Id : </h4> {id} </p></Col>
+                        <Col><p><h4>companyName : </h4> {companyName}</p></Col>
                     </Row>
-                    <p><b>Email :</b> {Email}</p>
-                    <p><b>Phone number :</b>{phoneNumber}</p>
-                    <p><b>สถานะ :</b>{type}</p>
+                    <p><h5>Email : </h5> {Email}</p>
+                    <p><h5>Phone number : </h5>{phoneNumber}</p>
+                    <p><h5>Status : </h5>{type}</p>
                   </div>
                   <div>
-                    
                   </div>
                 </div>
               </div>
             </div>
         </div>
-        
-
       </div>
     );
   }

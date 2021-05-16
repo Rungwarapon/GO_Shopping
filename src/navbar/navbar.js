@@ -1,6 +1,6 @@
 import Axios from 'axios';
 import { useState } from 'react';
-import { Navbar, Nav, NavDropdown, Form, Button, FormControl } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown, Form, Button, FormControl, Row, Col } from 'react-bootstrap';
 import { useHistory } from 'react-router';
 import companyLogo from './images/GoShopping1.png';
 
@@ -58,13 +58,23 @@ function App() {
               <Button variant="outline-success" type="submit">Search</Button>
             </Form>
           </Navbar.Collapse> */}
-          {localStorage.getItem('userToken')?<Nav.Link href="/companymanage">Manage your product
-          <NavDropdown title="Menu" id="basic-nav-dropdown">
+          
+          
+          {localStorage.getItem('userToken')?<Nav.Link  href="/companymanage">
+          <Row>
+          <Col md="auto"><Nav id="nav">Manage your product</Nav></Col>
+          <Col>
+            <NavDropdown title="Menu" id="nav-dropdown">
             <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
-          </NavDropdown></Nav.Link>:<Nav.Link href="/login">Login</Nav.Link>}
-         
+            </NavDropdown>
+            
+          </Col>
+          </Row>
+          </Nav.Link>:<Nav.Link href="/login">Login</Nav.Link>}
+    
+          
         </div>
       </Navbar>
     </div >

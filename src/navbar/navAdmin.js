@@ -8,6 +8,7 @@ import {
   Button,
   FormControl,
   Row,
+  Col
 } from "react-bootstrap";
 import { useHistory } from "react-router";
 import companyLogo from "./images/GoShopping1.png";
@@ -71,7 +72,8 @@ function App() {
             {localStorage.getItem("userToken") ? (
               <Nav.Link onClick={logout}>logout</Nav.Link>
             ) : (
-              <Nav.Link href="/login">Login</Nav.Link>
+              <Nav.Link href="/login"><Row>
+              <Col md="auto"><Nav id="nav">Login</Nav></Col></Row></Nav.Link>
             )}
           </Row>
         </div>
