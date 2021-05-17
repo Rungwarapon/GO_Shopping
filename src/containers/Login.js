@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Row, Col } from 'react-bootstrap';
 import { useHistory } from 'react-router';
 import Swal from 'sweetalert2';
 import Nav from "../navbar/navbar"
@@ -46,11 +46,14 @@ function Login() {
     <div className="App">
       <Nav />
       <div className="container">
-        <br />
+        <br/><br/><br/>
         <h1 className="text-center font-italic">Login</h1>
+        <br/>
+        <Row>
+          <Col md={{ span: 6, offset: 3 }}>
         <Form onSubmit={handleSubmit}>
           <Form.Group controlId="formBasicEmail" value={email} onChange={(e) => setEmail(e.target.value)}>
-            <Form.Label>Email address</Form.Label>
+            <Form.Label>Email</Form.Label>
             <Form.Control type="email" placeholder="Enter email" />
             <Form.Text className="text-muted">
               We'll never share your email with anyone else.
@@ -61,17 +64,16 @@ function Login() {
             <Form.Label>Password</Form.Label>
             <Form.Control type="password" placeholder="Password" />
           </Form.Group>
-          <Form.Group controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Check me out" />
-          </Form.Group>
-          <Button variant="secondary" type="submit">
+          <Button variant="primary" type="submit">
             Login
           </Button>
           {' '}
-          <Button variant="primary" href="/register">
+          <Button variant="secondary" href="/register">
             register
           </Button>
         </Form>
+        </Col>
+        </Row>
         {/* <Button variant="primary" href="/register">
                    register
             </Button> */}

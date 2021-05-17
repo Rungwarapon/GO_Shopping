@@ -8,7 +8,7 @@ import {
   Button,
   FormControl,
   Row,
-  Col
+  Col,
 } from "react-bootstrap";
 import { useHistory } from "react-router";
 import companyLogo from "./images/GoShopping1.png";
@@ -53,9 +53,8 @@ function App() {
               alt="React Bootstrap logo"
             />
           </Navbar.Brand>
-          <Row>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            {/* <Navbar.Collapse id="basic-navbar-nav">
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          {/* <Navbar.Collapse id="basic-navbar-nav">
             <Form inline onSubmit={handleSubmit}>
               <FormControl
                 type="text"
@@ -68,12 +67,19 @@ function App() {
               <Button variant="outline-success" type="submit">Search</Button>
             </Form>
           </Navbar.Collapse> */}
-            <Nav.Link href="/adminuser">All Company</Nav.Link>
+          <Row>
+            <Nav.Link href="/adminuser">
+              <Col md="auto">
+                <Nav id="nav">All Company</Nav>
+              </Col>
+            </Nav.Link>
+
             {localStorage.getItem("userToken") ? (
               <Nav.Link onClick={logout}>logout</Nav.Link>
             ) : (
-              <Nav.Link href="/login"><Row>
-              <Col md="auto"><Nav id="nav">Login</Nav></Col></Row></Nav.Link>
+              <Nav.Link href="/login">
+                <Nav id="nav">Login</Nav>
+              </Nav.Link>
             )}
           </Row>
         </div>

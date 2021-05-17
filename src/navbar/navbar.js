@@ -39,7 +39,7 @@ function App() {
           <Navbar.Brand className="text-light" href="/">
           <img
               src={companyLogo}
-              width="70%"
+              width="65%"
               className="d-inline-block align-top"
               alt="React Bootstrap logo"
             />
@@ -72,7 +72,7 @@ function App() {
             
           </Col>
           </Row>
-          </Nav.Link>:<Nav.Link href="/login">Login</Nav.Link>}
+          </Nav.Link>:<Nav.Link href="/login"><Nav id="nav">Login</Nav></Nav.Link>}
     
           
         </div>
