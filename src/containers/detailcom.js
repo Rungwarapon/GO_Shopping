@@ -9,7 +9,7 @@ function Comdetail(prop) {
   const [ComDee, SetComDee] = useState([]);
 
   // const fetchDataDetail =()=> {
-  Axios.get("http://localhost:3001/api/users/" + prop.id).then((res) => {
+  Axios.get("http://ec2-3-93-33-134.compute-1.amazonaws.com:3001/api/users/" + prop.id).then((res) => {
     SetComDee(res.data);
   });
 

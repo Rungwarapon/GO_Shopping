@@ -13,7 +13,7 @@ function Detailproduct(prop) {
   // const [ComDe, SetComDe] = useState([])
 
   const fetchData = () => {
-    Axios.get("http://localhost:3001/api/products/" + Idd).then((res) => {
+    Axios.get("http://ec2-3-93-33-134.compute-1.amazonaws.com:3001/api/products/" + Idd).then((res) => {
       SetProductDe(res.data);
       setload(true);
       // SetComId(res.data.userId)
