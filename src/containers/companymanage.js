@@ -36,7 +36,7 @@ function MydModalWithGrid(props) {
     formData.append("photos", photos);
 
     Axios.post(
-      "https://ec2-3-93-33-134.compute-1.amazonaws.com:3001/api/products/create",
+      "https://ec2-3-222-245-240.compute-1.amazonaws.com:3001/api/products/create",
       formData,
       setload(true)
     ).then((response) => {
@@ -165,7 +165,7 @@ function MyEditGrid(props) {
     formData.append("photos", photos);
 
     Axios.post(
-      "https://ec2-3-93-33-134.compute-1.amazonaws.com:3001/api/products/edit/" + productid,
+      "https://ec2-3-222-245-240.compute-1.amazonaws.com:3001/api/products/edit/" + productid,
       formData
     ).then((response) => {
       // setSearchValue(response.data)
@@ -288,7 +288,7 @@ function Companymanage() {
   const MAX_POSSIBLE_HEIGHT = 500;
 
   const fetchData = () => {
-    Axios.get("https://ec2-3-93-33-134.compute-1.amazonaws.com:3001/api/products/user/" + data).then((res) => {
+    Axios.get("https://ec2-3-222-245-240.compute-1.amazonaws.com:3001/api/products/user/" + data).then((res) => {
       SetProduct(res.data);
     });
   };
@@ -298,7 +298,7 @@ function Companymanage() {
   }, []);
 
   const handleDElete = (item) => {
-    Axios.delete("https://ec2-3-93-33-134.compute-1.amazonaws.com:3001/api/products/delete/" + item._id).then(
+    Axios.delete("https://ec2-3-222-245-240.compute-1.amazonaws.com:3001/api/products/delete/" + item._id).then(
       (res) => {}
     );
     window.location.reload(true);
@@ -374,7 +374,7 @@ function Companymanage() {
 
                   <MyEditGrid
                     id={Axios.get(
-                      "https://ec2-3-93-33-134.compute-1.amazonaws.com:3001/api/products/" + item._id
+                      "https://ec2-3-222-245-240.compute-1.amazonaws.com:3001/api/products/" + item._id
                     )}
                     show={showDetail}
                     onHide={() => setShowDetail(false)}

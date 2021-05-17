@@ -23,7 +23,7 @@ const Profile = () => {
   const data = JSON.parse(localStorage.getItem("datauser"));
   console.log(data);
   const fetchData = () => {
-    Axios.get("https://ec2-3-93-33-134.compute-1.amazonaws.com:3001/api/users").then((res) => {
+    Axios.get("https://ec2-3-222-245-240.compute-1.amazonaws.com:3001/api/users").then((res) => {
       SetId(data._id);
       SetcompanyName(data.companyName);
       SetphoneNumber(data.phoneNumber);
