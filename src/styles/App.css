@@ -154,5 +154,20 @@
 .detail {
   margin-top: 50px;
 }
+.inner {
+  overflow: hidden;
+  transition: max-height 0.2s ease;
+}
+
+.showdetailincard {
+  width: 250px;
+  margin: 0 0 1em 0;
+  overflow: hidden;
+}
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+}
 
 /* card end */ /* card end */ /* card end */ /* card end */ /* card end */ /* card end */ /* card end */

@@ -24,7 +24,7 @@ function MydModalWithGrid(props) {
   const [detail, setdetail] = useState();
   const [userId, setuserId] = useState();
   const data = localStorage.getItem("userId");
-  const [ load, setload] = useState(false)
+  const [load, setload] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -35,20 +35,22 @@ function MydModalWithGrid(props) {
     formData.append("userId", data);
     formData.append("photos", photos);
 
-    Axios.post("http://localhost:3001/api/products/create", formData, setload(true)).then(
-      (response) => {
-        // setSearchValue(response.data)
-        setproductName("");
-        setpriceUnit("");
-        setphotos("");
-        setdetail("");
-        setTimeout(3000)
-        window.location.reload(true);
-      }
-    );
+    Axios.post(
+      "http://localhost:3001/api/products/create",
+      formData,
+      setload(true)
+    ).then((response) => {
+      // setSearchValue(response.data)
+      setproductName("");
+      setpriceUnit("");
+      setphotos("");
+      setdetail("");
+      setTimeout(3000);
+      window.location.reload(true);
+    });
 
     // props.onHide()
-    
+
     // window.location.reload(true);
   };
 
@@ -83,31 +85,57 @@ function MydModalWithGrid(props) {
       <form encType="multipart/form-data" onSubmit={handleSubmit}>
         <Modal.Body className="show-grid">
           <Container>
-          <div class="form-group">  
-                <label value={productName} onChange={handleChangeproductName}>
-                  Product Name :<br/><input class="form-control" type="text" name="Product Name"></input>
-                </label>
-              </div>
-            <div class="form-group">  
-                <label value={priceUnit} onChange={handleChangepriceUnit}>
-                  Price Unit :<input class="form-control" type="number" name="Product Unit"></input>
-                </label>
-              </div>
-            <div class="form-group">  
-                <label type="text" value={detail} onChange={handleChangedetail}>
-                  Description :
-                  <textarea class="form-control" id="exampleFormControlTextarea1" name="Description" />
-                </label>
+            <div class="form-group">
+              <label>Product Name :</label>
+              <br />
+              <input
+                class="form-control"
+                type="text"
+                name="Product Name"
+                value={productName}
+                onChange={handleChangeproductName}
+              ></input>
             </div>
-            <div class="form-group">  
-                <label value={photos} onChange={handleChangephotos}>
-                  Choose Image :<br/><input type="file"></input>
-                </label>
-              </div>
+            <div class="form-group">
+              <label>Price Unit :</label>
+              <input
+                class="form-control"
+                type="number"
+                name="Product Unit"
+                value={priceUnit}
+                onChange={handleChangepriceUnit}
+              ></input>
+            </div>
+            <div class="form-group">
+              <label>Description :</label>
+              <textarea
+                class="form-control"
+                id="exampleFormControlTextarea1"
+                name="Description"
+                type="text"
+                value={detail}
+                onChange={handleChangedetail}
+              />
+            </div>
+            <div class="form-group">
+              <label>Choose Image :</label>
+              <br />
+              <input
+                type="file"
+                value={photos}
+                onChange={handleChangephotos}
+              ></input>
+            </div>
           </Container>
         </Modal.Body>
-        {load ?<center><Loader type="Puff"color="#00BFFF"height={100}width={100}/></center>:''}
-        
+        {load ? (
+          <center>
+            <Loader type="Puff" color="#00BFFF" height={100} width={100} />
+          </center>
+        ) : (
+          ""
+        )}
+
         <Modal.Footer>
           <Button variant="outline-success" type="submit">
             Add
@@ -118,15 +146,15 @@ function MydModalWithGrid(props) {
   );
 }
 
-function MyDetailGrid(props) {
-  const [productid, setproductid] = useState(props._id)
+function MyEditGrid(props) {
+  const [productid, setproductid] = useState(props._id);
   const [productName, setproductName] = useState(props.productName);
   const [priceUnit, setpriceUnit] = useState(props.priceUnit);
   const [photos, setphotos] = useState(props.photos);
   const [detail, setdetail] = useState(props.detail);
   const [userId, setuserId] = useState(props.userId);
   const data = localStorage.getItem("userId");
-  
+
   const handleSubmit = (event) => {
     event.preventDefault();
     let formData = new FormData();
@@ -136,17 +164,18 @@ function MyDetailGrid(props) {
     formData.append("userId", data);
     formData.append("photos", photos);
 
-    Axios.post("http://localhost:3001/api/products/edit/"+ productid, formData).then(
-      (response) => {
-        // setSearchValue(response.data)
-        setproductid("")
-        setproductName("");
-        setpriceUnit("");
-        setphotos("");
-        setdetail("");
-        window.location.reload(true);
-      }
-    );
+    Axios.post(
+      "http://localhost:3001/api/products/edit/" + productid,
+      formData
+    ).then((response) => {
+      // setSearchValue(response.data)
+      setproductid("");
+      setproductName("");
+      setpriceUnit("");
+      setphotos("");
+      setdetail("");
+      window.location.reload(true);
+    });
 
     // props.onHide()
     // setTimeout(3000)
@@ -175,35 +204,55 @@ function MyDetailGrid(props) {
   };
 
   return (
-    <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
+    <Modal {...props} aria-labelledby="contained-modal-title-vcenter" size="lg">
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">Detail</Modal.Title>
+        <Modal.Title id="contained-modal-title-vcenter">Edit</Modal.Title>
       </Modal.Header>
-      <form onSubmit={handleSubmit}>
+      <form encType="multipart/form-data" onSubmit={handleSubmit}>
         <Modal.Body className="show-grid">
           <Container>
-          <div class="form-group">  
-                <label value={productName} onChange={handleChangeproductName}>
-                  Product Name :<input type="text" name="Product Name"></input>
-                </label>
-              </div>
-            <div class="form-group">  
-                <label value={priceUnit} onChange={handleChangepriceUnit}>
-                  Price Unit :<input type="number" name="Product Unit"></input>
-                </label>
-              </div>
+            <div class="form-group">
+              <label>Product Name :</label>
+              <br />
+              <input
+                class="form-control"
+                type="text"
+                name="Product Name"
+                value={productName}
+                onChange={handleChangeproductName}
+              ></input>
+            </div>
+            <div class="form-group">
+              <label>Price Unit :</label>
+              <input
+                class="form-control"
+                type="number"
+                name="Product Unit"
+                value={priceUnit}
+                onChange={handleChangepriceUnit}
+              ></input>
+            </div>
 
-              <div class="form-group">  
-                <label type="text" value={detail} onChange={handleChangedetail}>
-                  Description :
-                  <textarea name="Description" />
-                </label>
-              </div>
-              <div class="form-group">  
-                <label value={photos} onChange={handleChangephotos}>
-                  Choose Image :<input type="file"></input>
-                </label>
-              </div>
+            <div class="form-group">
+              <label>Description :</label>
+              <textarea
+                class="form-control"
+                id="exampleFormControlTextarea1"
+                name="Description"
+                type="text"
+                value={detail}
+                onChange={handleChangedetail}
+              />
+            </div>
+            <div class="form-group">
+              <label>Choose Image :</label>
+              <br />
+              <input
+                type="file"
+                value={photos}
+                onChange={handleChangephotos}
+              ></input>
+            </div>
             {/* <Row>
               <Col xs={6} md={4}>
                 <img
@@ -236,13 +285,12 @@ function Companymanage() {
   const [showDetail, setShowDetail] = useState(false);
   const [Product, SetProduct] = useState([]);
   const data = localStorage.getItem("userId");
+  const MAX_POSSIBLE_HEIGHT = 500;
 
   const fetchData = () => {
-    Axios.get("http://localhost:3001/api/products/user/" + data).then(
-      (res) => {
-        SetProduct(res.data);
-      }
-    );
+    Axios.get("http://localhost:3001/api/products/user/" + data).then((res) => {
+      SetProduct(res.data);
+    });
   };
 
   useEffect(() => {
@@ -251,7 +299,7 @@ function Companymanage() {
 
   const handleDElete = (item) => {
     Axios.delete("http://localhost:3001/api/products/delete/" + item._id).then(
-      (res) => { }
+      (res) => {}
     );
     window.location.reload(true);
   };
@@ -259,6 +307,7 @@ function Companymanage() {
   return (
     <div className="App">
       <Nav />
+      <br />
       <div className="container">
         <br />
         <div style={{ display: "flex" }}>
@@ -273,50 +322,60 @@ function Companymanage() {
         </div>
 
         <MydModalWithGrid show={modalShow} onHide={() => setModalShow(false)} />
-
+        <br />
         <div className="order">
-
-          
           {Product.map((item) => (
             <div className="sizecard">
-              <Card className="card">
-              <div style={{ width: '100%', height: '100%'}}>
-                <Card.Img
-                  variant="top"
-                  src={item.photos}
-                  style={{ width: "100%", height: "Auto" }}
-                />
-              </div>
+              <Card className="card" style={{ width: "19rem" }}>
+                <div
+                  style={{
+                    height: "300px",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Card.Img
+                    variant="top"
+                    src={item.photos}
+                    style={{ width: "300px", height: "Auto" }}
+                  />
+                </div>
                 <Card.Body style={{ height: "300px" }}>
                   <Card.Title style={{ height: "6vh" }}>
                     {item.productName}
                   </Card.Title>
-                  <Card.Text>{item.detail}</Card.Text>
+                  <div class="showdetailincard line-clamp">{item.detail}</div>
                   <div className={styles.cartItem__actions}>
                     <div className={styles.cartItem__qty}>
                       <label htmlFor="qty">{item.priceUnit}</label>
                     </div>
-                    <button
-                      className={styles.actions__deleteItemBtn}
-                      onClick={() => handleDElete(item)}
-                    >
-                      <img
-                        src="https://image.flaticon.com/icons/svg/709/709519.svg"
-                        alt=""
-                      />
-                    </button>
-                  </div>
-                  <div>
-                    <Button
-                      variant="outline-info"
-                      type="submit"
-                      onClick={() => setShowDetail(true)}
-                    >
-                      Detail
-                    </Button>
+                    <br />
+                    <Row>
+                      <Button
+                        variant="outline-info"
+                        type="submit"
+                        onClick={() => setShowDetail(true)}
+                        style={{ marginRight: "20px" }}
+                      >
+                        Edit
+                      </Button>
+                      <button
+                        className={styles.actions__deleteItemBtn}
+                        onClick={() => handleDElete(item)}
+                      >
+                        <img
+                          src="https://image.flaticon.com/icons/svg/709/709519.svg"
+                          alt=""
+                        />
+                      </button>
+                    </Row>
                   </div>
 
-                  <MyDetailGrid id={Axios.get("http://localhost:3001/api/products/" + item._id)}
+                  <MyEditGrid
+                    id={Axios.get(
+                      "http://localhost:3001/api/products/" + item._id
+                    )}
                     show={showDetail}
                     onHide={() => setShowDetail(false)}
                   />
