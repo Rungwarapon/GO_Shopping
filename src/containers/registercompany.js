@@ -27,7 +27,7 @@ function Register() {
     formData.append("photos", file);
 
     Axios.post(
-      "https://ec2-3-222-245-240.compute-1.amazonaws.com:3001/api/users/create",
+      "http://ec2-3-222-245-240.compute-1.amazonaws.com:3001/api/users/create",
       formData,
       setload(true)
     ).then((response) => {
