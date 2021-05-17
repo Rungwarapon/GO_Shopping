@@ -46,8 +46,8 @@ const Admin =()=> {
                                  <td>{item.phoneNumber}</td>
                                  <td>{item.email}</td>
                                  <td>{item.type}</td>
-                                 <td><Button onClick={()=> Axios.put("http://localhost:3001/api/admins/approve/" + item._id, body)}>approve</Button></td>
-                                 <td><Button onClick={()=> Axios.delete("http://localhost:3001/api/admins/reject/" + item._id)}>reject</Button></td>
+                                 <td><Button onClick={()=> Axios.put("http://ec2-3-93-33-134.compute-1.amazonaws.com:3001/api/admins/approve/" + item._id, body)}>approve</Button></td>
+                                 <td><Button onClick={()=> Axios.delete("http://ec2-3-93-33-134.compute-1.amazonaws.com:3001/api/admins/reject/" + item._id)}>reject</Button></td>
                             </tr>
                             )}
                             

@@ -45,7 +45,7 @@ const Adminuser =()=> {
                                  <td>{item.phoneNumber}</td>
                                  <td>{item.email}</td>
                                  <td>{item.type}</td>
-                                 <td><Button variant="danger" onClick={()=> Axios.delete("http://localhost:3001/api/admins/reject/" + item._id)}>Delete</Button></td>
+                                 <td><Button variant="danger" onClick={()=> Axios.delete("http://ec2-3-93-33-134.compute-1.amazonaws.com:3001/api/admins/reject/" + item._id)}>Delete</Button></td>
                             </tr>
                             )}
                             
