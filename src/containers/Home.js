@@ -35,7 +35,7 @@ function Home() {
     let body = {
       searchProduct: searchProduct,
     };
-    Axios.post("http://ec2-3-93-33-134.compute-1.amazonaws.com:3001/api/index/search", body).then(
+    Axios.post("https://ec2-3-93-33-134.compute-1.amazonaws.com:3001/api/index/search", body).then(
       (response) => {
         setSearchValue(response.data);
         console.log(response.data);
