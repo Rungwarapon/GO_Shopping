@@ -13,7 +13,7 @@ function Home() {
   const [searchProduct, setSearchProduct] = useState("");
   const [load, setload] = useState(false);
   const fetchData = () => {
-    Axios.get("http://ec2-3-93-33-134.compute-1.amazonaws.com:3001/api/products", setload(true)).then(
+    Axios.get("https://ec2-3-93-33-134.compute-1.amazonaws.com:3001/api/products", setload(true)).then(
       (res) => {
         SetProduct(res.data);
       }
