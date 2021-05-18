@@ -13,7 +13,7 @@ function Home() {
   const [searchProduct, setSearchProduct] = useState("");
   const [load, setload] = useState(false);
   const fetchData = () => {
-    Axios.get("http://ec2-3-238-162-98.compute-1.amazonaws.com:3001/api/products", setload(true)).then(
+    Axios.get("http://ec2-44-192-108-246.compute-1.amazonaws.com:3001/api/products", setload(true)).then(
       (res) => {
         SetProduct(res.data);
       }
@@ -35,7 +35,7 @@ function Home() {
     let body = {
       searchProduct: searchProduct,
     };
-    Axios.post("http://ec2-3-238-162-98.compute-1.amazonaws.com:3001/api/index/search", body).then(
+    Axios.post("http://ec2-44-192-108-246.compute-1.amazonaws.com:3001/api/index/search", body).then(
       (response) => {
         setSearchValue(response.data);
         console.log(response.data);

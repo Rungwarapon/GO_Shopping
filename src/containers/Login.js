@@ -17,7 +17,7 @@ function Login() {
       email: email,
       password: password
     }
-    axios.post('http://ec2-3-238-162-98.compute-1.amazonaws.com:3001/api/auths/login', body).then((response) => {
+    axios.post('http://ec2-44-192-108-246.compute-1.amazonaws.com:3001/api/auths/login', body).then((response) => {
       localStorage.setItem('userToken', response.data.tokens);
       localStorage.setItem('userId', response.data.userId);
       // localStorage.setItem('isAdmin', response.data.isAdmin);

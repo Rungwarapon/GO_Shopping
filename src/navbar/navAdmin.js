@@ -28,7 +28,7 @@ function App() {
     let body = {
       searchProduct: searchProduct,
     };
-    Axios.post("http://ec2-3-238-162-98.compute-1.amazonaws.com:3001/api/index/search", body).then(
+    Axios.post("http://ec2-44-192-108-246.compute-1.amazonaws.com:3001/api/index/search", body).then(
       (response) => {
         console.log(response.data);
       }
