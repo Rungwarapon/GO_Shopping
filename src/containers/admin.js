@@ -10,7 +10,7 @@ const Admin =()=> {
         type: 'approve'
     }
     const fetchData =()=> {
-      Axios.get("http://ec2-3-222-245-240.compute-1.amazonaws.com:3001/api/admins/pending").then(
+      Axios.get("http://ec2-3-238-162-98.compute-1.amazonaws.com:3001/api/admins/pending").then(
           res => {
             setReg(res.data)
           })
@@ -46,8 +46,8 @@ const Admin =()=> {
                                  <td>{item.phoneNumber}</td>
                                  <td>{item.email}</td>
                                  <td>{item.type}</td>
-                                 <td><Button onClick={()=> Axios.put("http://ec2-3-222-245-240.compute-1.amazonaws.com:3001/api/admins/approve/" + item._id, body)}>approve</Button></td>
-                                 <td><Button onClick={()=> Axios.delete("http://ec2-3-222-245-240.compute-1.amazonaws.com:3001/api/admins/reject/" + item._id)}>reject</Button></td>
+                                 <td><Button onClick={()=> Axios.put("http://ec2-3-238-162-98.compute-1.amazonaws.com:3001/api/admins/approve/" + item._id, body)}>approve</Button></td>
+                                 <td><Button onClick={()=> Axios.delete("http://ec2-3-238-162-98.compute-1.amazonaws.com:3001/api/admins/reject/" + item._id)}>reject</Button></td>
                             </tr>
                             )}
                             
