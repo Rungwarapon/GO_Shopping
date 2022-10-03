@@ -6,10 +6,10 @@
 2. 61070088 นายธิติวุฒิ  โพธิ์พันธุ์
 3. 61070190 นางสาวรุ่งวราพร  คุตะนนท์
 
-# Work progress    [ ]ไม่รวมตกแต่ง
+# Work progress
    - Authen
       - [x] register
-      - [ ] login/logout 
+      - [x] login/logout 
       - [ ] forgot password
       - [ ] change password
 
@@ -21,14 +21,13 @@
         - [x] แสดงข้อมูลProduct
         - [x] แสดงข้อมูลCompany
       - [x] หน้า Profile #รอ Authenเสร็จ
-        - [ ] แสดงข้อมูล User ที่ Login #รอ Authenเสร็จ
-        - [ ] Edit User
+        - [x] แสดงข้อมูล User ที่ Login #รอ Authenเสร็จ
+        - [x] Edit User
         - [ ] history order ไม่ทำแล้ว
    - company
-      - [ ] แสดง Product ของ company
+      - [x] แสดง Product ของ company
       - [x] เพิ่ม Product
-      - [ ] แก้ Product
+      - [x] แก้ Product
       - [x] ลบ Product
-      - [ ] 
 
 
