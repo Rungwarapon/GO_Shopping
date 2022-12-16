@@ -19,7 +19,7 @@
         - [x] แสดงข้อมูลProduct
         - [x] แสดงข้อมูลCompany
       - [x] หน้า Profile 
-        - [x] แสดงข้อมูล User ที่ Login #รอ Authenเสร็จ
+        - [x] แสดงข้อมูล User ที่ Login 
         - [x] Edit User
    - company
       - [x] แสดง Product ของ company
