@@ -14,11 +14,11 @@
    - customer
       - [x] หน้าHome
         - [x] แสดงproduct
-        - [x] filter #ถ้าทัน
+        - [x] filter 
       - [x] หน้าDetail Product
         - [x] แสดงข้อมูลProduct
         - [x] แสดงข้อมูลCompany
-      - [x] หน้า Profile #รอ Authenเสร็จ
+      - [x] หน้า Profile 
         - [x] แสดงข้อมูล User ที่ Login #รอ Authenเสร็จ
         - [x] Edit User
    - company
