@@ -10,8 +10,6 @@
    - Authen
       - [x] register
       - [x] login/logout 
-      - [ ] forgot password
-      - [ ] change password
 
    - customer
       - [x] หน้าHome
@@ -23,7 +21,6 @@
       - [x] หน้า Profile #รอ Authenเสร็จ
         - [x] แสดงข้อมูล User ที่ Login #รอ Authenเสร็จ
         - [x] Edit User
-        - [ ] history order ไม่ทำแล้ว
    - company
       - [x] แสดง Product ของ company
       - [x] เพิ่ม Product
